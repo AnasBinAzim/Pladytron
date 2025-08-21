@@ -8,12 +8,12 @@ import numpy as np
 from scipy.stats import linregress, false_discovery_control
 from shapely.geometry import Point, Polygon
 import pigpio
- 
+
 pi = pigpio.pi()
 lidar = LidarReader(path="/home/wro/rplidar_sdk/output/Linux/Release/ultra_simple")
 servo = Servo(4)
 motor = Motor(pi)
- 
+
 # constants
 rwall = 0
 lwall = 0
@@ -22,19 +22,19 @@ err = 22
 f = 0
 checker = 13
 last_time = -100
- 
+
 angle_groups = {
     "front": [356,357, 358,359, 0,1, 2,3, 4],
     "right": [86, 88, 90, 92, 94],
     "left": [266, 268, 270, 272, 274]
 }
- 
+
 while True:
     if rwall and lwall:
         break
     rwall = lidar.get(90)  # right side wall
     lwall = lidar.get(270)  # left wall
- 
+
 if rwall <= lwall:
     follow_ang = 65
     corner_ang = 270
@@ -43,7 +43,7 @@ elif lwall < rwall:
     follow_ang = 295
     corner_ang = 90
     print("following left wall")
- 
+
 corner = 0
 fwall_init = lidar.get(0)
 center_dist = lidar.get(follow_ang)
@@ -52,8 +52,8 @@ max_dist = (2 * center_dist) - min_dist
 print(f"rwall={rwall} lwall={lwall} center={center_dist} max_dist={max_dist}")
 time.sleep(3)
 motor.forward(255)  # forward
- 
- 
+
+
 def get_lidar_points(angles):
     points = []
     for angle in angles:
@@ -61,13 +61,13 @@ def get_lidar_points(angles):
         x, y = coords(r, angle)
         points.append([x, y])
     return np.array(points)
- 
- 
+
+
 try:
     while True:
         print(direction)
         if direction == 0:
- 
+
             num_groups = len(angle_groups)
             slopes = [None] * num_groups  # None for vertical lines
             intercepts = [None] * num_groups
@@ -92,8 +92,8 @@ try:
                     for angee in angs:
                         print(lidar.get(angee))
                     print()
- 
- 
+
+         
             if f == 1:
                 if not are_perpendicular(slopes[0], slopes[1]):
                     print("rejected Line")
@@ -116,7 +116,7 @@ try:
                 y4 = yr + (yy - yf)
                 x5 = xf + (xx2 - xl)
                 y5 = yf + (yy2 - yl)
- 
+
                 cnt = 7
                 while cnt < 80 and direction == 0:
                     cnt += 1
@@ -133,7 +133,7 @@ try:
                         corner_ang = 270
                         print(follow_ang)
                         break
- 
+
                 cnt = 353
                 while cnt > 650 and direction == 0:
                     cnt -= 1
@@ -147,7 +147,7 @@ try:
                         corner_ang = 90
                         print(follow_ang)
                         break
- 
+
         if time.perf_counter() - last_time > 1.55:
             points = []
             ange = corner_ang + checker
@@ -158,7 +158,7 @@ try:
                 cnt += 1
             pts = get_lidar_points(points)
             is_line, slope, intercept, r2 = linearity(pts)
- 
+
             points = []
             ange = corner_ang - checker
             cnt = 1
@@ -168,20 +168,20 @@ try:
                 cnt += 1
             pts = get_lidar_points(points)
             is_line2, slope2, intercept2, r22 = linearity(pts)
- 
+
             if is_line and is_line2 and are_perpendicular(slope, slope2):
                 corner += 1
                 last_time = time.perf_counter()
                 print(corner)
- 
+
         dist = lidar.get(follow_ang)
         fwall = lidar.get(0)  # get front dist
         time.sleep(1)
         print(1)
- 
+
         if corner == 12 and fwall < 1450 and time.perf_counter() - last_time > 1.35:
             motor.stop()
- 
+
         if fwall < 0:
             while True:
                 fwall = lidar.get(0)
@@ -191,7 +191,7 @@ try:
                     steer(servo, -75)
                 else:  # left
                     steer(servo, 75)
- 
+
         if dist is not None:
             d = clamp(dist, min_dist, max_dist)
             ang = map_range(d, min_dist, max_dist, -75, 75)
@@ -199,9 +199,8 @@ try:
                 steer(servo, ang)
             else:  # left
                 steer(servo, -ang)
- 
+
 except KeyboardInterrupt:
     print("Stopping LIDAR...")
     lidar.stop()
     motor.stop()
- 
