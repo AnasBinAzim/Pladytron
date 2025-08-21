@@ -2,8 +2,8 @@ import numpy as np
 from scipy.stats import linregress
 from shapely.geometry import Point, Polygon
 #constants
-threshold = 0.95
-tol = 0.1
+threshold = 0.83
+tol = 0.85
 
 def coords(r, theta_deg):
     theta = np.deg2rad(theta_deg)
@@ -48,3 +48,4 @@ def get_intersection(m0, b0, m1, b1):
         x_int = (b1 - b0) / (m0 - m1)
         y_int = m0 * x_int + b0
     return x_int, y_int
+
