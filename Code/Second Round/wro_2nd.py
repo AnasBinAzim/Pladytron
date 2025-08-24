@@ -11,13 +11,18 @@ from line_plotter import line_show,point_show
 from shapely.geometry import Point, Polygon
 import pigpio
 
+
+# object constants
+max_width = 180
+max_x_delta_change = 480
+delta_change_ratio = 1.17
 # constants
 steering_value = 90
+steering_limit = 75
+obj_steer_error = 80
 width_for_constant_distance = 9  # minimum acceptable width
 minimum_y_for_object = 360
-x_boundary_for_red = 360
-x_boundary_for_green = 920
-band_height = 470
+band_height = 540
 
 # first round part
 pi = pigpio.pi()
@@ -70,8 +75,8 @@ object_colors = [
 # --- Open any camera from index 0 to 9 ---
 for cam_index in range(10):
     cam = cv.VideoCapture(cam_index)
-    cam.set(3, 1280)
-    cam.set(4, 720)
+    cam.set(3, 1920)
+    cam.set(4, 1080)
     if cam.isOpened():
         print(f"? Camera opened at index {cam_index}")
         break
@@ -150,28 +155,30 @@ while True:
         y2 = int(y + h / 2)
         cv.rectangle(frame, (x1, y1), (x2, y2), (255, 255, 0), 2)
         if hisab[0][3] == 0:
-            res = w / 180
-            res = res * 360
-            res = res ** 1.17
+            res = w / max_width
+            res = res * max_x_delta_change
+            res = res ** delta_change_ratio
             desired = int(x - res)
             desired = max(desired, 0)
-            desired = min(desired, 1280)
+            desired = min(desired, 1920)
             cv.circle(frame, (desired, y), 6, (255, 255, 0), -1)
-            ratio = x_boundary_for_green - desired
-            ratio = ratio / x_boundary_for_green
-            ratio = ratio * 70
+            ratio = (960 + obj_steer_err) - desired
+            ratio = max(0,ratio)
+            ratio = ratio * steering_limit
+            ratio = ratio / (960 + obj_steer_err)
             steering_value = int(90 - ratio)
         elif hisab[0][3] == 1:
-            res = w / 180
-            res = res * 360
-            res = res ** 1.17
+            res = w / max_width
+            res = res * max_x_delta_change
+            res = res ** delta_change_ratio
             desired = int(x + res)
             desired = max(desired, 0)
-            desired = min(desired, 1280)
+            desired = min(desired, 1920)
             cv.circle(frame, (desired, y), 6, (255, 255, 0), -1)
-            ratio = desired - x_boundary_for_red
-            ratio = ratio / (1280 - x_boundary_for_red)
-            ratio = ratio * 70
+            ratio = desired - (960 - obj_steer_err)
+            ratio = max(0,ratio)
+            ratio = ratio / (1920 - (960 - obj_steer_err))
+            ratio = ratio * steering_limit
             steering_value = int(90 + ratio)
     print(steering_value)
 
@@ -190,22 +197,21 @@ while True:
     cv.imshow("Detection and Masks", combined)
 
     fwall = lidar.get(0)
-    if fwall < 480:
-        motor.stop()
-        print("stopped")
-
     rwall = lidar.get(60)
     lwall = lidar.get(300)
-    diff = rwall - lwall
-    diff = map_range(diff, -2800, 2800, -75, 75)
-    diff = clamp(diff, -75, 75)
-
-    err = diff
-    ang = err * 1 + (err - last_err) * 5
-    ang = clamp(ang, -75, 75)
-    steer(servo, ang)
-    # print(f"fwall={rwall}, lwall={lwall}, ang={ang}, corner={corner}")
-    last_err = err
+    if fwall < 480 or rwall < 350 or lwall < 350:
+        motor.stop()
+        print("stopped")
+        break
+    if steering_value != 90:
+        diff = rwall - lwall
+        diff = map_range(diff, -2800, 2800, -75, 75)
+        diff = clamp(diff, -75, 75)
+        err = diff
+        ste = err * 1 + (err - last_err) * 5
+        steering_value = clamp(steering_value, -75, 75)
+        last_err = err
+    steer(servo, steering_value)    
 
     if cv.waitKey(1) & 0xFF == ord('p'):
         break
