@@ -6,7 +6,7 @@
 
 ---
 
-## 👥 **Team MAYERDOA - "Mothers' Prayers"**
+## 👥 **Team PLADYTRON**
 
 - **Anas Bin Azim**  – Software & Hardware Developer | [anas.azim.71@gmail.com](mailto:anas.azim.71@gmail.com)
 - **Mohiuddin Sami** – Primary Software Developer | [sm.mohiuddin.sami@gmail.com](mailto:sm.mohiuddin.sami@gmail.com)
@@ -15,9 +15,9 @@
 
 ---
 
-### 🌟 **The Meaning Behind MAYERDOA**
+### 🌟 **The Meaning Behind PLADYTRON**
 
-Our team name, **"MAYERDOA,"** translates to **"Mother's Prayers"** in Bengali, a tribute to the unwavering support of our mothers. They have been our guiding light, steadfastly cheering us on from the initial selection to the WRO global stage. Through every challenge, they are our invisible strength—their love and prayers fueling each achievement, each step forward, each line of code. Their blessings are woven into the fabric of this project, making it more than just a technical endeavor; it’s a heartfelt journey.
+Our team name, “PLADYTRON,” dances between the realms of play and technology—a symphony of creativity and code. Like sparks igniting in the dark, our ideas come alive through the joyful spirit of discovery and the relentless pulse of innovation. But beyond the screens and circuits, there is an unseen force : our wellspring of strength: the unwavering support of those who walk beside us. Their hopes, whispered like secret blessings, fuel every challenge we embrace. In their quiet faith, we find the courage to dream bigger, to build stronger, and to journey farther. Pladytron is more than a name; it is the heartbeat of a shared dream, where joy and determination intertwine to create something truly extraordinary.
 
 ---
 
