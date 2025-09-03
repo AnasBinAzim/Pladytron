@@ -117,25 +117,18 @@ Our bot, **SMOKI**, is built for excellence in the **World Robot Olympiad 2024**
 
 
 ## 🧩 Components and Hardware
-
 Our bot is equipped with various components that support its autonomous functionality. Here is a breakdown of the key hardware elements used in this project:
 
-| Component                      | Description                                                                                      | Image                                                                                                        | Purchase Link                                                                                    |
-|--------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
-| **Raspberry Pi 5**             | Provides processing power for control algorithms and sensor data management.                     | <div align="center"><img src="https://github.com/user-attachments/assets/b6b79ab7-a635-4ff0-9f66-b53b7e97dcd7" alt="Raspberry Pi 5" width="100"></div> | [Purchase Raspberry Pi 5](https://amzn.to/3wKg5TG)                                               |
-| **ESP32 Microcontroller**      | Handles real-time sensor data interpretation and motor control.                                  | <div align="center"><img src="https://github.com/user-attachments/assets/0fe5f54b-8df2-492c-a68c-8e100bae381d" alt="ESP32" width="100"></div>        | [Purchase ESP32](https://amzn.to/3ESP32)                                                         |
-| **LEGO EV3 Expansion Set (45560)** | Modular components used for building and structural support.                             | <div align="center"><img src="https://github.com/user-attachments/assets/c99f6a51-5c82-4981-bed8-0cb59690b966" alt="LEGO EV3 Set" width="100"></div>  | [Purchase LEGO 45560](https://amzn.to/3K4eLEGO)                                                  |
-| **XL4016 Buck Converter**      | Provides stable voltage for the Raspberry Pi and ESP32, enhancing power management.              | <div align="center"><img src="https://github.com/user-attachments/assets/b7184ca5-34c3-48db-86e7-a5e919362516" alt="XL4016 Buck Converter" width="100"></div> | [Purchase XL4016](https://amzn.to/4xl4016)                                                       |
-| **Custom PCB**                 | Custom-designed PCB for efficient wiring and stable connections across all components.           | <div align="center"><img src="https://github.com/user-attachments/assets/395457b5-f8e8-41e0-8a82-dc93fbd486c8" alt="Custom PCB" width="100"></div>           | N/A                                                                                              |
-| **Ultrasonic Sensors**         | Detects distances to obstacles and aids in precise navigation.                                   | <div align="center"><img src="https://github.com/user-attachments/assets/dc6408c5-e4c1-4a63-b9cf-35efa5a8483a" alt="Ultrasonic Sensor" width="100"></div> | [Purchase Ultrasonic Sensor](https://amzn.to/3Ultrasonic)                                        |
-| **Camera - SJ CAM C200**       | Captures visual data, supporting navigation and obstacle detection tasks.                        | <div align="center"><img src="https://github.com/user-attachments/assets/8bb8ceb2-e95b-45cd-9e9d-ec480b62baaa" alt="SJ CAM C200" width="100"></div>  | [Purchase SJ CAM C200](https://amzn.to/3SJCAM)                                                   |
-| **3D Printed Mounts**          | Custom-made mounts for stable sensor and component positioning.                                  | <div align="center"><img src="https://github.com/user-attachments/assets/66340cc9-0085-4e51-8400-c7a09e2504ad" alt="3D Printed Mounts" width="100"></div>     | N/A                                                                                              |
+| Component                  | Description                                                                                      | Image                          | Purchase Link                                                                                  |
+|----------------------------|------------------------------------------------------------------------------------------------|--------------------------------|-----------------------------------------------------------------------------------------------|
+| **Chassis - Custom Made**   | Custom-designed chassis tailored to fit all components and optimize stability and movement.    | <div align="center"><img src="" alt="Chassis Custom Made" width="100"></div>         | N/A                                                                                           |
+| **RPLIDAR C1**             | 360-degree laser scanner used for mapping and obstacle detection.                              | <div align="center"><img src="" alt="RPLIDAR C1" width="100"></div>                   | [Purchase RPLIDAR C1](https://www.mybotshop.de/SLAMTEC-RPLIDAR-C1-360-Laser-Scanner-12-m)     |
+| **Servo Motor SG90**       | Small, lightweight servo motor used for precise control of angles and positioning.             | <div align="center"><img src="" alt="Servo Motor SG90" width="100"></div>             | [Purchase SG90](https://bongotech.ai/product/sg90-micro-servo-motor-180-degree)                |
+| **SJ CAM C200**            | Captures visual data, supporting navigation and obstacle detection tasks.                      | <div align="center"><img src="" alt="SJ CAM C200" width="100"></div>                  | [Purchase SJ CAM C200](https://amzn.to/3SJCAM) (From previous knowledge)                      |
+| **Buck Module XL4016**     | Provides stable voltage regulation for power management.                                      | <div align="center"><img src="" alt="Buck Module XL4016" width="100"></div>           | [Purchase XL4016](https://amzn.to/4xl4016) (From previous knowledge)                          |
+| **Motor Driver L293D**     | Dual H-Bridge motor driver for controlling DC motors and stepper motors.                       | <div align="center"><img src="" alt="Motor Driver L293D" width="100"></div>           | [Purchase L293D](https://electropeak.com/l293d-motor-drive-shield)                            |
+| **Booster Module 5V to 40V** | Voltage booster module to step up power supply from 5V to 40V, supporting high-voltage requirements. | <div align="center"><img src="" alt="Booster Module 5V to 40V" width="100"></div>       | [Purchase Booster Module](https://robu.in/product-category/electronic-modules/electronic-module/buck-boost-converter/boost-converter/) |
 
-
-
----
----
----
 
 ## 🚀 Key Features
 
