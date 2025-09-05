@@ -626,23 +626,22 @@ For a comprehensive understanding of the Hough Line Transform method, you can wa
 
 ```mermaid
 flowchart TD
+    
     A[Start] --> B[Capture Image]
     B --> C[Convert to HSV]
-    C --> D[Segment Blue and Orange Portions]
-    D --> H[Apply Hough Line Transform]
-    H --> E{Blue Before Orange?}
-    E -->|Yes| F[Set Right-Based Orientation]
-    E -->|No| G[Set Left-Based Orientation]
-    F --> I[Count Detected Lines]
-    G --> I
-    I --> J{Lines Counted >= 12?}
-    J -->|No| K[Calculate Error]
-    K --> L[PID Controller Adjusts Steering]
-    L --> M[Continue Navigation]
-    M --> B
-    J -->|Yes| N[Delay and Stop]
-    N --> O[End]
-```
+    C --> D[Check Color + Corner Features]
+    D --> E{Color OR Corner Detected?}
+    E -->|Yes| F[Increase Corner Count]
+    E -->|No| B
+    F --> G{Corner Count >= 12?}
+    G -->|No| H[Calculate Error]
+    H --> I[PID Controller Adjusts Steering]
+    I --> J[Continue Navigation]
+    J --> B
+    G -->|Yes| K[Delay and Stop]
+    K --> L[End]
+
+
 
 
 ---
