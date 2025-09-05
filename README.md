@@ -624,6 +624,8 @@ For a comprehensive understanding of the Hough Line Transform method, you can wa
 
 ## 📊 Round 1 Algorithm - Corner Detection Navigation
 
+**Flowchart:**
+
 ```mermaid
 flowchart TD
     A[Start] --> B[Capture Image]
@@ -635,10 +637,9 @@ flowchart TD
     F --> G{Corner Count >= 12?}
     G -->|No| H[Calculate Error]
     H --> I[PID Controller Adjusts Steering]
-    I --> J[Continue Navigation]
-    J --> B
-    G -->|Yes| K[Delay and Stop]
-    K --> L[End]
+    I --> B
+    G -->|Yes| J[Stop Robot]
+```
 
 
 
