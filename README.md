@@ -1,4 +1,4 @@
-# 🤖 **MAYERDOA Robotics - WRO 2024 Project** 🤖
+# 🤖 ** INTRODUCING TEAM PLADYTRON - WRO 2025 ** 🤖
 # UPDATE: We placed 20th on the World Robot Olympiad 2024 (Turkey)
 <div align="center">
   <img src="https://github.com/user-attachments/assets/b69b15b8-69d2-439a-aac6-5dcfc8eba67c"/>
