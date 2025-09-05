@@ -622,14 +622,13 @@ For a comprehensive understanding of the Hough Line Transform method, you can wa
 
 ## 📦 Project Structure
 
-## 📊 Flowchart of the Algorithm
+## 📊 Round 1 Algorithm - Corner Detection Navigation
 
 ```mermaid
 flowchart TD
-    
     A[Start] --> B[Capture Image]
     B --> C[Convert to HSV]
-    C --> D[Check Color + Corner Features]
+    C --> D[Check Color and Corner Features]
     D --> E{Color OR Corner Detected?}
     E -->|Yes| F[Increase Corner Count]
     E -->|No| B
