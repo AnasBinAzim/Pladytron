@@ -629,16 +629,23 @@ For a comprehensive understanding of the Hough Line Transform method, you can wa
 ```mermaid
 flowchart TD
     A[Start] --> B[Capture Image]
-    B --> C[Convert to HSV]
-    C --> D[Check Color and Corner Features]
-    D --> E{Color OR Corner Detected?}
-    E -->|Yes| F[Increase Corner Count]
-    E -->|No| B
-    F --> G{Corner Count >= 12?}
-    G -->|No| H[Calculate Error]
-    H --> I[PID Controller Adjusts Steering]
-    I --> B
-    G -->|Yes| J[Stop Robot]
+    B --> C{Line Detected?}
+    
+    C -->|Yes| D{Orientation Set?}
+    D -->|Yes| E[Line Count ++]
+    D -->|No| F[Fix Orientation for Next Run and Line Count ++]
+    E --> G[Continue]
+    F --> G[Continue]
+    
+    C -->|No| H[LIDAR Scan Image]
+    H --> I{Slope of Adjacent Lines?}
+    I -->|Perpendicular| J[Line Count ++]
+    I -->|Not Perpendicular| K[Use Weighted Average from LIDAR to Find Best Path]
+    
+    J --> L[PID Calculates Steering Value]
+    K --> L[PID Calculates Steering Value]
+    G --> L
+    L --> M[Continue Navigation]
 ```
 
 
