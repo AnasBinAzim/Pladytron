@@ -623,7 +623,63 @@ For a comprehensive understanding of the Hough Line Transform method, you can wa
 ## 📦 Project Structure
 
 ## 📊 Round 1 Algorithm - Corner Detection Navigation
+## 📖 Detailed Algorithm Description
 
+In Round 1 of the **Future Engineers** category, our robot follows a structured pipeline to complete a lap, detect corners, and terminate correctly at the finish line. The algorithm is designed to balance **robust line tracking** with **precise stopping conditions**.
+
+---
+
+### 🔹 Step 1 – Image Acquisition
+- Capture live frames using the Pi Camera.
+- Convert the frames from **BGR to HSV** for better color segmentation.
+
+---
+
+### 🔹 Step 2 – Line Detection
+- Apply masking to detect the black line on the arena.
+- Use contour/moments to find the line’s centroid.
+- If the line is detected:
+  - Increment the **line counter**.
+  - Reset the **last line timestamp**.
+
+---
+
+### 🔹 Step 3 – Orientation and Corner Detection
+- If a corner is detected (sharp angle/edge in the line):
+  - Increment the **corner counter**.
+- Orientation is adjusted automatically based on the line’s slope and direction.
+
+---
+
+### 🔹 Step 4 – Obstacle / Missing Line Handling
+- If the line is missing:
+  - Scan using LiDAR/adjacent frame data.
+  - Calculate slopes of adjacent left and right boundaries.
+  - If **perpendicular slope** detected → count as a line.
+  - Otherwise → apply **weighted average** to determine the best path.
+
+---
+
+### 🔹 Step 5 – PID Steering
+- Use a **PID controller** to calculate steering corrections.
+- Maintain smooth navigation while keeping the robot centered on the track.
+
+---
+
+### 🔹 Step 6 – Termination Condition
+The robot stops when all three conditions are met:
+1. **Line Count ≥ 12**  
+2. **Last Line Detected > 1500 ms ago**  
+3. **Floor Distance < 1500 mm** (from ultrasonic/LiDAR sensor)  
+
+If these conditions are true:
+- Stop all motors.
+- Terminate the run.
+
+Otherwise:
+- Continue navigation using the **Weighted Average path selection**.
+
+---
 **Flowchart:**
 
 ```mermaid
