@@ -731,23 +731,23 @@ Feel free to reach out if you need more insights or help with further tuning the
 
 ```mermaid
 flowchart TD
-    Start --> Step1[Capture Image]
-    Step1 --> Step2[Convert Image to HSV]
-    Step2 --> Step3[Apply Gaussian Blur]
-    Step3 --> Step4[Isolate Black Borders]
-    Step4 --> Step5[Detect Borders with Canny Edge and Hough Transform]
-    Step5 --> Step6[Mask Area Outside Borders]
-    Step6 --> Step7[Detect Blue or Orange Lines]
-    Step7 --> Step8[Calculate Min and Max Slopes]
-    Step8 --> Decision1{Both Lines Detected?}
-    Decision1 -- Yes --> Step9[Determine Orientation]
-    Decision1 -- No --> Step9[Use Detected Line]
-    Step9 --> Step10[Detect Objects Within Boundary]
-    Step10 --> Step11[Assign Priority to Objects]
-    Step11 --> Step12[Select Highest Priority Object]
-    Step12 --> Step13[Calculate Steering Value]
-    Step13 --> Step14[Send Steering Value to ESP32]
-    Step14 --> End
+    A[Start] --> B[Capture Image]
+    B --> C{Line Detected?}
+    
+    C -->|Yes| D{Orientation Set?}
+    D -->|Yes| E[Line Count ++]
+    D -->|No| F[Fix Orientation for Next Run and Line Count ++]
+    E --> K[Use Weighted Average from LIDAR to Find Best Path]
+    F --> K[Use Weighted Average from LIDAR to Find Best Path]
+    
+    C -->|No| H[LIDAR Scan Image]
+    H --> I{Slope of Adjacent Lines?}
+    I -->|Perpendicular| J[Line Count ++]
+    I -->|Not Perpendicular| K[Use Weighted Average from LIDAR to Find Best Path]
+    
+    J --> K
+    K --> L[PID Calculates Steering Value]
+    L --> M[Continue Navigation]
 
 ```
 
