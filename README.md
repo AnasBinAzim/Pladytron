@@ -631,21 +631,26 @@ flowchart TD
     A[Start] --> B[Capture Image]
     B --> C{Line Detected?}
     
+    %% Line Detected Branch
     C -->|Yes| D{Orientation Set?}
     D -->|Yes| E[Line Count ++]
     D -->|No| F[Fix Orientation for Next Run and Line Count ++]
-    E --> G[Continue]
-    F --> G[Continue]
+    E --> G{LineCount >= 12 AND LastLine > 1500ms AND FloorDist < 1500?}
+    F --> G
+    G -->|Yes| H[Stop Bot and Terminate Code]
+    G -->|No| K[Use Weighted Average from LIDAR to Find Best Path]
     
-    C -->|No| H[LIDAR Scan Image]
-    H --> I{Slope of Adjacent Lines?}
-    I -->|Perpendicular| J[Line Count ++]
-    I -->|Not Perpendicular| K[Use Weighted Average from LIDAR to Find Best Path]
+    %% No Line Detected Branch
+    C -->|No| I[LIDAR Scan Image]
+    I --> J{Slope of Adjacent Lines?}
+    J -->|Perpendicular| L[Line Count ++]
+    J -->|Not Perpendicular| K
+    L --> G
     
-    J --> K
-    G --> K
-    K --> L[PID Calculates Steering Value]
-    L --> M[Continue Navigation]
+    %% Common Path
+    K --> M[PID Calculates Steering Value]
+    M --> N[Continue Navigation]
+
 
 ```
 
