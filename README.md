@@ -642,10 +642,11 @@ flowchart TD
     I -->|Perpendicular| J[Line Count ++]
     I -->|Not Perpendicular| K[Use Weighted Average from LIDAR to Find Best Path]
     
-    J --> L[PID Calculates Steering Value]
+    J --> K
+    G --> K
     K --> L[PID Calculates Steering Value]
-    G --> L
     L --> M[Continue Navigation]
+
 ```
 
 
