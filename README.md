@@ -793,22 +793,33 @@ Feel free to reach out if you need more insights or help with further tuning the
 ```mermaid
 flowchart TD
     A[Start] --> B[Capture Image]
-    B --> C{Line Detected?}
+    B --> O{Object Detected?}
+
+    %% Object Detected Branch
+    O -->|Red Object| P[Steer Right with PID]
+    O -->|Green Object| Q[Steer Left with PID]
+    P --> N[Continue Navigation]
+    Q --> N
+
+    %% No Object Detected Branch → Round 1 Logic
+    O -->|No| C{Line Detected?}
     
     C -->|Yes| D{Orientation Set?}
     D -->|Yes| E[Line Count ++]
     D -->|No| F[Fix Orientation for Next Run and Line Count ++]
-    E --> K[Use Weighted Average from LIDAR to Find Best Path]
-    F --> K[Use Weighted Average from LIDAR to Find Best Path]
+    E --> G{LineCount >= 12 AND LastLine > 1500ms AND FloorDist < 1500?}
+    F --> G
+    G -->|Yes| H[Stop Bot and Terminate Code]
+    G -->|No| K[Use Weighted Average from LIDAR to Find Best Path]
     
-    C -->|No| H[LIDAR Scan Image]
-    H --> I{Slope of Adjacent Lines?}
-    I -->|Perpendicular| J[Line Count ++]
-    I -->|Not Perpendicular| K[Use Weighted Average from LIDAR to Find Best Path]
+    C -->|No| I[LIDAR Scan Image]
+    I --> J{Slope of Adjacent Lines?}
+    J -->|Perpendicular| L[Line Count ++]
+    J -->|Not Perpendicular| K
+    L --> G
     
-    J --> K
-    K --> L[PID Calculates Steering Value]
-    L --> M[Continue Navigation]
+    K --> M[PID Calculates Steering Value]
+    M --> N[Continue Navigation]
 
 ```
 
