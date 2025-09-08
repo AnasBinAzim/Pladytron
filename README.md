@@ -804,22 +804,23 @@ flowchart TD
     %% No Object Detected Branch → Round 1 Logic
     O -->|No| C{Line Detected?}
     
+    %% Line Detected = Yes
     C -->|Yes| D{Orientation Set?}
     D -->|Yes| E[Line Count ++]
     D -->|No| F[Fix Orientation for Next Run and Line Count ++]
     E --> G{LineCount >= 12 AND LastLine > 1500ms AND FloorDist < 1500?}
     F --> G
-    G -->|Yes| H[Stop Bot and Terminate Code]
+    G -->|Yes| H[Initiate Parking Maneuver]
     G -->|No| K[Use Weighted Average from LIDAR to Find Best Path]
+
+    %% Line Detected = No
+    C -->|No| X{LineCount >= 12 AND LastLine > 1500ms AND FloorDist < 1500?}
+    X -->|Yes| H
+    X -->|No| I[LIDAR Scan Image]
+    I --> K
     
-    C -->|No| I[LIDAR Scan Image]
-    I --> J{Slope of Adjacent Lines?}
-    J -->|Perpendicular| L[Line Count ++]
-    J -->|Not Perpendicular| K
-    L --> G
-    
-    K --> M[PID Calculates Steering Value]
-    M --> N[Continue Navigation]
+    %% Common Path
+    K --> M[PID]()
 
 ```
 
