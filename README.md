@@ -791,6 +791,7 @@ Feel free to reach out if you need more insights or help with further tuning the
 ## **Flowchart**
 
 ```mermaid
+
 flowchart TD
     A[Start] --> B[Capture Image]
     B --> O{Object Detected?}
@@ -820,13 +821,9 @@ flowchart TD
     I --> K
     
     %% Common Path
-    K --> M[PID]()
-
+    K --> M[PID Calculates Steering Value]
+    M --> N[Continue Navigation]
 ```
-
-
----
----
 <p align="center">
   # THATS ALL FROM US
 </p>
