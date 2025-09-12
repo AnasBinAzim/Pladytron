@@ -238,6 +238,18 @@ Thickness (Z): 10 mm
 
 <img width="1394" height="725" alt="image" src="https://github.com/user-attachments/assets/270cb784-abef-46f4-95c1-31577cfeb1a9" />
 
+This part is the steering shaft of the robot chassis. It connects directly to the steering plate and transmits the motion from the servo motor to the wheels, enabling controlled directional movement. The design includes a central body with mounting cut-outs and side holes that allow it to be fixed securely to the chassis while maintaining free rotational movement where needed. Its sturdy build ensures that torque from the servo is effectively transferred to the wheels without bending or slipping, making it a key component for precise steering.
+
+Dimensions:
+
+Width (X): 
+
+Height (Y): 
+
+Thickness (Z): 
+
+
+
 
 ### 🚗 Drive System
 
