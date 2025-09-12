@@ -215,6 +215,11 @@ Length (Y): 185.0 mm
 Thickness (Z): 10.0 mm
 
 ---
+---
+
+
+
+
 
 ### CHASSIS STEERING :
 <img width="1390" height="721" alt="image" src="https://github.com/user-attachments/assets/5bf6bf24-4169-486a-9a18-3f7ea01eafa4" />
@@ -249,6 +254,29 @@ Height (Y):
 Thickness (Z): 
 
 
+---
+---
+
+
+## CHASSIS SECOND FLOOR :
+<img width="1381" height="718" alt="image" src="https://github.com/user-attachments/assets/816acdff-af66-435c-bd58-89c1de20a055" />
+
+
+This is the second floor of the robot chassis, designed to mount the following components:
+
+RPLIDAR C1 (with a 10 cm clearance ensured by floor orientation)
+
+LiPo 1500mAh 9A 3S battery
+
+STL Dimensions: 131.27 mm × 101.50 mm × 10.00 mm
+
+The plate includes cutouts for weight reduction and cable management, along with mounting holes for secure installation. Its orientation was carefully adjusted to provide the RPLIDAR with optimal clearance for unobstructed 360° scanning.
+
+---
+
+
+## CHASSIS TOP FLOOR:
+<img width="1420" height="720" alt="image" src="https://github.com/user-attachments/assets/9e55ee47-a77b-4c2a-9d98-42b5f0e091a5" />
 
 
 ### 🚗 Drive System
