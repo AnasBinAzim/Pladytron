@@ -214,6 +214,7 @@ Length (Y): 185.0 mm
 
 Thickness (Z): 10.0 mm
 
+---
 
 ### CHASSIS STEERING :
 <img width="1390" height="721" alt="image" src="https://github.com/user-attachments/assets/5bf6bf24-4169-486a-9a18-3f7ea01eafa4" />
@@ -229,6 +230,14 @@ Width (X): 96.2 mm
 Height (Y): 35.55 mm
 
 Thickness (Z): 10 mm
+
+---
+---
+
+### STEERING SHAFT :
+
+<img width="1394" height="725" alt="image" src="https://github.com/user-attachments/assets/270cb784-abef-46f4-95c1-31577cfeb1a9" />
+
 
 ### 🚗 Drive System
 
