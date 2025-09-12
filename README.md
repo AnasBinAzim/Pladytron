@@ -300,46 +300,7 @@ The switch provides overall power control for the floor.
 ---
 ---
 
-### 🚗 Drive System
-
-The drive system includes DC motors, which provide reliable propulsion and control.
-
-https://github.com/user-attachments/assets/59de14fc-f248-4ac2-8b31-80baea148cff
-
-
-<p align="center">
-  <table>
-    <tr>
-      <td>
-        <img src="https://github.com/user-attachments/assets/297d61d9-bef9-49eb-92bd-bed3f49f170d" width="350" height="200" />
-      </td>
-      <td>
-        <img src="https://github.com/user-attachments/assets/3731a99c-2025-4ecf-bbbc-6adab70886ab" width="350" height="200" />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <img src="https://github.com/user-attachments/assets/e5054dfd-4277-47fe-9986-4acdd1ff4e14" width="350" height="200" />
-      </td>
-      <td>
-        <img src="https://github.com/user-attachments/assets/f5ab2184-7332-4fab-bb6f-050e5189baf2" width="350" height="200" />
-      </td>
-    </tr>
-  </table>
-</p>
-
-
-# ⚡ Electronics and Power System
-
-- **Power Module**: Ensures consistent power to the Raspberry Pi and ESP32.
-- **Wiring**: Organized to minimize interference.
-
-----
-----
-----
-
-
-# 🚗 Mobility Management
+### Mobility Management:
 
 The mobility system of our robot has been meticulously designed to ensure smooth, efficient, and reliable movement, addressing both power distribution and maneuverability. This section outlines the evolution of our robot's mobility systems, including upgrades to the steering and gear systems.
 
@@ -469,6 +430,22 @@ The **Ackermann Steering System** ensures that the wheels of a vehicle turn at d
 1. **Efficient Turning**: Minimizes tire slippage.
 2. **Energy Savings**: Reduces power loss caused by wheel drag.
 3. **Realistic Simulation**: Mirrors real-world vehicle steering.
+
+
+
+# ⚡ Electronics and Power System
+
+- **Power Module**: Ensures consistent power to the Raspberry Pi and ESP32.
+- **Wiring**: Organized to minimize interference.
+
+----
+----
+----
+
+
+# 🚗 Mobility Management
+
+
 
 ---
 
