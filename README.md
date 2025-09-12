@@ -306,32 +306,40 @@ The mobility system of our robot has been meticulously designed to ensure smooth
 
 ---
 
-## 800 RPM 16GA DC Gear Motor
+#### **16GA 800 RPM DC Gear Motor**
 
-<img src="ba477e29-e159-48ae-95ce-b1a3293add2b.png" alt="16GA Motor" width="250" align="left" style="margin-right:20px;"/>
+<table>
+<tr>
+<td width="50%">
+<div align="center">
+  <img src="./ba477e29-e159-48ae-95ce-b1a3293add2b.png" width="300" alt="16GA 800 RPM DC Gear Motor"/>
+</div>
+</td>
+<td width="50%">
 
-A **16GA DC Gear Motor** combines a DC motor with a metal gearbox.  
-It is used to provide controlled rotational speed and torque output through its gearbox reduction.
+A **16GA DC gear motor** is a DC motor with an integrated gearbox. It provides controlled shaft rotation with increased output torque through gearbox reduction.
 
-### How the Motor Works
-- The motor converts electrical energy into shaft rotation.  
-- The integrated gearbox reduces speed and increases torque.  
-- The D-shaped shaft allows secure attachment of gears, couplings, or pulleys.
+##### **How the Motor Works**
+- The DC motor converts electrical input into rotational motion of the armature and shaft.  
+- The gearbox stages reduce output speed and increase torque at the output shaft.  
+- The D-flat on the shaft provides a positive mechanical interface for gears, pulleys, or couplings.
 
-### Specifications
-- **Nominal Speed:** 800 RPM  
-- **Shaft Diameter:** 3 mm (D-flat: 2.5 mm)  
+##### **Specifications**
+- **Rated Speed:** 800 RPM  
+- **Shaft Diameter:** 3.0 mm (D-flat: 2.5 mm)  
 - **Gearbox Diameter:** 16 mm  
-- **Motor Body Length:** 26.5 mm  
 - **Gearbox Length:** 14 mm  
-- **Shaft Length:** 11.2 mm  
+- **Motor Body Length:** 26.5 mm  
+- **Shaft Length (protruding):** 11.2 mm
 
-### Advantages of the 16GA Motor
-1. **Compact Size:** Fits in limited spaces due to small diameter gearbox.  
-2. **Reliable Power Transmission:** Gearbox provides stable torque at reduced speed.  
-3. **Practical Shaft Design:** D-flat shaft prevents slipping under load.  
+##### **Advantages**
+1. **Compact Design**: Small gearbox diameter and short overall length for tight assemblies.  
+2. **Increased Torque**: Gear reduction delivers higher torque at the output shaft for loaded conditions.  
+3. **Positive Shaft Interface**: D-flat prevents rotary slip when fitted with set-screws or couplings.
 
-<br clear="left"/>
+</td>
+</tr>
+</table>
 
 ---
 
