@@ -172,53 +172,9 @@ Our bot is equipped with various components that support its autonomous function
 
 ## 🔧 Assembly Instructions
 
-### 🏗️ Chassis Assembly - LEGO 45560 Expansion Set
+### 🏗️ Chassis Assembly 
 
-Our robot’s chassis is built using components from the **LEGO Technic Expansion Set 45560**. This set provides modular, robust, and flexible building parts that are ideal for constructing a stable and durable chassis foundation. The combination of LEGO’s high-quality materials and custom components ensures that our robot is adaptable, allowing for quick adjustments and additions.
-
-#### 📘 LEGO 45560 Expansion Set Manual
-For a step-by-step guide on using the LEGO 45560 parts, refer to the official **LEGO 45560 Expansion Set Manual**:
-- **[LEGO 45560 Expansion Set Instructions]([https://www.lego.com/cdn/manuals/45560.pdf](https://robotsquare.com/2013/10/01/lego-mindstorms-ev3-education-expansion-set-45560-instructions/))**
-
----
-
-#### 🧩 Parts List - LEGO 45560 Expansion Set
-
-The LEGO 45560 Expansion Set contains a variety of parts that are essential for building complex mechanisms. Below is a detailed list of all parts included in the set:
-
-| Part Number | Part Name                     | Quantity |
-|-------------|--------------------------------|----------|
-| 45502       | LEGO Technic Beam 3x5          | 2        |
-| 45503       | LEGO Technic Beam 3x7          | 4        |
-| 45504       | LEGO Technic Beam 5x11         | 2        |
-| 45505       | LEGO Technic Beam 5x7          | 4        |
-| 45507       | LEGO Technic Beam 1x9          | 6        |
-| 45508       | LEGO Technic Beam 1x15         | 4        |
-| 45509       | LEGO Technic Angular Beam 4x6  | 6        |
-| 45510       | LEGO Technic Angular Beam 3x5  | 4        |
-| 3703        | LEGO Technic Beam 1x16         | 2        |
-| 32000       | LEGO Technic Brick 1x14        | 4        |
-| 32002       | LEGO Technic Cross Block 3x3   | 4        |
-| 92907       | LEGO Technic Axle 7            | 8        |
-| 32009       | LEGO Technic Axle 9            | 4        |
-| 24316       | LEGO Technic Gear 24 Tooth     | 4        |
-| 42003       | LEGO Technic Gear 16 Tooth     | 6        |
-| 6538b       | LEGO Technic Connector Peg w/ Friction | 50 |
-| 3647        | LEGO Technic Gear 8 Tooth      | 6        |
-| 87083       | LEGO Technic Pin 2L            | 60       |
-| 32269       | LEGO Technic Connector Peg     | 20       |
-| 40490       | LEGO Technic Axle Pin          | 40       |
-| 32556       | LEGO Technic Double Cross Block | 6      |
-| 32184       | LEGO Technic Connector with Bush | 8      |
-| 3749        | LEGO Technic Bush              | 40       |
-| 3713        | LEGO Technic Half Bush         | 30       |
-| 42195       | LEGO Technic Pin w/ Stop       | 12       |
-| 18654       | LEGO Technic Angular Beam 4x4  | 6        |
-| 11478       | LEGO Technic Frame 5x7         | 2        |
-
-> **Note**: Quantities are approximate based on the LEGO 45560 set contents. For exact counts, refer to the [manual](https://www.lego.com/cdn/manuals/45560.pdf).
-
----
+≠
 
 #### 🛠️ Chassis Assembly Process
 
@@ -232,56 +188,31 @@ Here’s a step-by-step overview of the chassis assembly process using the LEGO 
 
 ---
 
-#### 🔍 Benefits of Using LEGO Technic Parts
+##CHASSIS FIRST FLOOR : 
 
-- **Modularity**: The LEGO Technic beams and connectors allow for quick modifications, so adjustments can be made without disrupting the entire structure.
-- **Durability**: High-quality materials ensure the chassis remains stable even during rigorous testing.
-- **Precision**: Technic gears, axles, and connectors provide precise alignment, which is critical for movement control and sensor accuracy.
+<img width="1422" height="732" alt="image" src="https://github.com/user-attachments/assets/a67bffe7-39af-4c0c-b009-ef4beefd3101" />
 
----
+This is the first floor of the robot chassis, designed to serve as the primary structural layer of the bot. The STL model shows a flat base plate with multiple precisely positioned mounting holes and slots for components.
 
-By leveraging the flexibility and durability of the LEGO 45560 Expansion Set, our chassis design achieves a balance between robustness and adaptability. The manual and parts list serve as valuable resources for replicating or modifying the design as needed.
+Key Features:
 
+Steering Shaft Mount: The elongated slot at the top center is designed to hold the steering shaft, ensuring smooth and stable movement.
 
----
+Servo Motor Mount: Dedicated mounting holes allow the servo motor to be securely attached for steering control.
 
+Camera Holder: The central cut-out and surrounding structure provide space for installing a camera for vision-based navigation.
 
-The following images showcase the detailed assembly process of our WRO Bot's chassis, utilizing the LEGO 45560 expansion set.
+Wheel Mounts: Side holes are aligned to support the wheels, making them properly fixed to the frame.
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Framed Images</title>
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+Base Support: This floor acts as the foundation of the robot, supporting the upper floors and ensuring stability during operation.
 
-  </style>
-</head>
-<body>
-  <table>
-    <tr>
-      <td><img src="https://github.com/user-attachments/assets/0994a988-1f73-43db-b7f9-34c5243a842a" alt="Image 1"></td>
-      <td><img src="https://github.com/user-attachments/assets/39b389db-0038-425f-bcd5-740f748e3cc9" alt="Image 2"></td>
-    </tr>
-    <tr>
-      <td><img src="https://github.com/user-attachments/assets/339eaf97-91a8-4987-8af9-c86c2d4fe360" alt="Image 3"></td>
-      <td><img src="https://github.com/user-attachments/assets/30eae1ee-b442-4caf-86c3-7d5bbb12c6c3" alt="Image 4"></td>
-    </tr>
-    <tr>
-      <td><img src="https://github.com/user-attachments/assets/e95b4755-0067-4639-bd6b-58631e9da91e" alt="Image 5"></td>
-      <td><img src="https://github.com/user-attachments/assets/cb176c4d-0af5-4f80-ae3b-d7a9033592d0" alt="Image 6"></td>
-    </tr>
-    <tr>
-      <td colspan="2"><img src="https://github.com/user-attachments/assets/14527900-366e-4555-8aac-33a8163e1e19" alt="Image 7" style="width: 100%; height: auto;"></td>
-    </tr>
-  </table>
-</body>
-</html>
+Dimensions:
+
+Width (X): 101.5 mm
+
+Length (Y): 185.0 mm
+
+Thickness (Z): 10.0 mm
 
 
 ### 🚗 Drive System
