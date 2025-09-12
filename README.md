@@ -31,7 +31,7 @@ Our team name, “PLADYTRON,” dances between the realms of play and technology
 
 **Age:** 17  
 
-**High School:** Adamjee Cantonment College, Dhaka  
+**High School:** Adamjee Cantonment College, Dhaka 
 
 **Description:** [Write your description here – e.g. your journey, interests, robotics achievements, passions, etc.]  
 
@@ -45,9 +45,9 @@ Our team name, “PLADYTRON,” dances between the realms of play and technology
 
 **Age:** 17  
 
-**High School:** Adamjee Cantonment College, Dhaka  
+**High School:** Rajuk Uttara Model College, Dhaka 
 
-**Description:** [Write Sami’s description here – e.g. his role in the team, passions, hobbies, and what excites him about robotics.]  
+**Description:** [Hi! I’m Anas from Bangladesh and this is my second WRO International season. In 2024, I had the honor of representing Team Mayerdoa Robotics at the World Robot Olympiad in Turkey, where we proudly placed 20th in the Future Engineers category. I’ve been deeply involved in robotics for over 4 years, building autonomous systems and competing in both national and international competitions. Beyond robotics, I’m passionate about programming, innovation, quizzing, traveling, and playing cricket.]  
 
 
 ## 🎉 Project Overview
