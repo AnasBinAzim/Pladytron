@@ -26,8 +26,8 @@ Our team name, “PLADYTRON,” dances between the realms of play and technology
 
 ## Anas Bin Azim  
 
-![Anas](<img width="960" height="960" alt="image" src="https://github.com/user-attachments/assets/434a9416-e07d-4d49-8c71-0dfb8161ee08" />
-)
+![Anas]<img width="960" height="960" alt="image" src="https://github.com/user-attachments/assets/434a9416-e07d-4d49-8c71-0dfb8161ee08" />
+
 
 **Age:** 17  
 
