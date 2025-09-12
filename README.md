@@ -26,7 +26,7 @@ Our team name, “PLADYTRON,” dances between the realms of play and technology
 
 ## Anas Bin Azim  
 
-![Anas]<img width="960" height="960" alt="image" src="https://github.com/user-attachments/assets/434a9416-e07d-4d49-8c71-0dfb8161ee08" />
+<img width="960" height="960" alt="image" src="https://github.com/user-attachments/assets/434a9416-e07d-4d49-8c71-0dfb8161ee08" />
 
 
 **Age:** 17  
@@ -39,7 +39,8 @@ Our team name, “PLADYTRON,” dances between the realms of play and technology
 
 ## Mohiuddin Sami  
 
-![Sami]()
+<img width="960" height="960" alt="image" src="https://github.com/user-attachments/assets/9fe250c6-b535-4f5a-a893-af4f384ab7f4" />
+
 
 **Age:** 17  
 
