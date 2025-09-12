@@ -188,7 +188,7 @@ Here’s a step-by-step overview of the chassis assembly process using the LEGO 
 
 ---
 
-##CHASSIS FIRST FLOOR : 
+## CHASSIS FIRST FLOOR : 
 
 <img width="1422" height="732" alt="image" src="https://github.com/user-attachments/assets/a67bffe7-39af-4c0c-b009-ef4beefd3101" />
 
@@ -214,6 +214,21 @@ Length (Y): 185.0 mm
 
 Thickness (Z): 10.0 mm
 
+
+### CHASSIS STEERING :
+<img width="1390" height="721" alt="image" src="https://github.com/user-attachments/assets/5bf6bf24-4169-486a-9a18-3f7ea01eafa4" />
+
+
+
+This is the steering plate of the robot chassis, designed to integrate with the first floor and provide precise steering control. The central rectangular gap is a servo clearance slot, which allows the servo horn and linkage to move freely during steering. The smaller holes around the center are meant for mounting the servo securely, while the larger side holes provide attachment points to connect the steering plate with the rest of the chassis. The plate is compact yet durable, ensuring stability during turns, and it directly connects the servo motor to the steering shaft and wheels, making it an essential component for controlling the robot’s movement.
+
+Dimensions:
+
+Width (X): 96.2 mm
+
+Height (Y): 35.55 mm
+
+Thickness (Z): 10 mm
 
 ### 🚗 Drive System
 
