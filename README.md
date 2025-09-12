@@ -306,6 +306,35 @@ The mobility system of our robot has been meticulously designed to ensure smooth
 
 ---
 
+## 800 RPM 16GA DC Gear Motor
+
+<img src="ba477e29-e159-48ae-95ce-b1a3293add2b.png" alt="16GA Motor" width="250" align="left" style="margin-right:20px;"/>
+
+A **16GA DC Gear Motor** combines a DC motor with a metal gearbox.  
+It is used to provide controlled rotational speed and torque output through its gearbox reduction.
+
+### How the Motor Works
+- The motor converts electrical energy into shaft rotation.  
+- The integrated gearbox reduces speed and increases torque.  
+- The D-shaped shaft allows secure attachment of gears, couplings, or pulleys.
+
+### Specifications
+- **Nominal Speed:** 800 RPM  
+- **Shaft Diameter:** 3 mm (D-flat: 2.5 mm)  
+- **Gearbox Diameter:** 16 mm  
+- **Motor Body Length:** 26.5 mm  
+- **Gearbox Length:** 14 mm  
+- **Shaft Length:** 11.2 mm  
+
+### Advantages of the 16GA Motor
+1. **Compact Size:** Fits in limited spaces due to small diameter gearbox.  
+2. **Reliable Power Transmission:** Gearbox provides stable torque at reduced speed.  
+3. **Practical Shaft Design:** D-flat shaft prevents slipping under load.  
+
+<br clear="left"/>
+
+---
+
 ### **Rear Axle Power Distribution**
 
 Initially, the rear wheels were powered through a **Bevel Gear**, but we later upgraded to a **Differential Gearbox** to improve efficiency and performance during turns.
