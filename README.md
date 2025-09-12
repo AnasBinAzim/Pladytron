@@ -312,7 +312,8 @@ The mobility system of our robot has been meticulously designed to ensure smooth
 <tr>
 <td width="50%">
 <div align="center">
-  <img src="./ba477e29-e159-48ae-95ce-b1a3293add2b.png" width="300" alt="16GA 800 RPM DC Gear Motor"/>
+  <img width="600" height="597" alt="image" src="https://github.com/user-attachments/assets/5a446791-2e61-4f52-b6ba-a0e01f6ba39b" />
+
 </div>
 </td>
 <td width="50%">
@@ -480,45 +481,6 @@ The **Ackermann Steering System** ensures that the wheels of a vehicle turn at d
 ----
 
 
-# 🚗 Mobility Management
-
-
-
----
-
-#### **Why We Switched to LEGO Steering System**
-
-The **LEGO Steering System** offered greater simplicity and modularity, which were critical for our robot’s design. While Ackermann Steering is ideal for large-scale vehicles, the LEGO system provided better adaptability for our compact robot.
-
----
-
-#### **What is LEGO Steering System?**
-
-The LEGO Steering System uses modular LEGO Technic parts with a simple rack-and-pinion mechanism for steering. It achieves a turning angle of **50 degrees**, allowing precise control over the robot's movements.
-
-##### **Advantages of LEGO Steering**
-1. **Modularity**: Easy to assemble, adjust, and maintain.
-2. **Compact Design**: Fits seamlessly into the robot’s chassis.
-3. **Precision**: Allows accurate steering movements with a servo motor.
-4. **Ease of Use**: Simplifies the overall system design without sacrificing functionality.
-
----
----
-
-### **Conclusion**
-
-The upgrades to our robot’s mobility system—switching from bevel gears to a differential gearbox, integrating the L293D with a servo motor, and transitioning from Ackermann Steering to LEGO Steering—significantly enhanced its performance. These changes provided:
-1. **Smoother Turns**: Differential gearbox enabled independent wheel speeds, reducing slippage.
-2. **Precise Control**: The L293D motor driver ensured smooth speed and direction management.
-3. **Simpler Design**: LEGO Steering’s modularity allowed for easier integration and maintenance.
-4. **Energy Efficiency**: Reduced strain on components, improving energy usage and longevity.
-
-Together, these upgrades ensured that our robot was optimized for the challenges of the WRO course, achieving a balance between simplicity and performance.
-
-
-----
-----
-----
 
 # ⚡ Power and Sense Management
 
