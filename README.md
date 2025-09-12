@@ -1,8 +1,8 @@
 # 🤖 ** INTRODUCING TEAM PLADYTRON - WRO 2025 ** 🤖
 # UPDATE: We placed 20th on the World Robot Olympiad 2024 (Turkey)
 <div align="center">
-  <img src="<img width="1280" height="568" alt="image" src="https://github.com/user-attachments/assets/930fa959-45ad-4a6b-877a-23a41c0a6785" />
-"/>
+  <img width="1280" height="568" alt="image" src="https://github.com/user-attachments/assets/930fa959-45ad-4a6b-877a-23a41c0a6785" />
+
 </div>
 
 ---
