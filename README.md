@@ -22,6 +22,31 @@ Our team name, “PLADYTRON,” dances between the realms of play and technology
 
 ---
 
+# The Team  
+
+## Anas Bin Azim  
+
+![Anas](<img width="960" height="960" alt="image" src="https://github.com/user-attachments/assets/434a9416-e07d-4d49-8c71-0dfb8161ee08" />
+)
+
+**Age:** 17  
+
+**High School:** Adamjee Cantonment College, Dhaka  
+
+**Description:** [Write your description here – e.g. your journey, interests, robotics achievements, passions, etc.]  
+
+---
+
+## Mohiuddin Sami  
+
+![Sami]()
+
+**Age:** 17  
+
+**High School:** Adamjee Cantonment College, Dhaka  
+
+**Description:** [Write Sami’s description here – e.g. his role in the team, passions, hobbies, and what excites him about robotics.]  
+
 
 ## 🎉 Project Overview
 <img align="right" alt="SMOKI" width="350" src="https://github.com/user-attachments/assets/46c38599-e416-42cb-93ba-6f83ff142c18">
