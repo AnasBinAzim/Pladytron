@@ -158,21 +158,12 @@ Our bot is equipped with various components that support its autonomous function
 | **Booster Module 5V to 40V** | Voltage booster module to step up power supply from 5V to 40V, supporting high-voltage requirements. | <div align="center"><img src="" alt="Booster Module 5V to 40V" width="100"></div>       | [Purchase Booster Module](https://robu.in/product-category/electronic-modules/electronic-module/buck-boost-converter/boost-converter/) |
 
 
-## 🚀 Key Features
-
-- **Modular LEGO Design**: Easily reconfigurable using LEGO Technic parts, allowing for quick adjustments.
-- **Advanced Processing with Raspberry Pi 5**: Enables complex algorithms and sensor data handling.
-- **Efficient Power Management**: The XL4016 buck converter and custom PCB provide stable voltage.
-- **Comprehensive Sensor Suite**: Includes ultrasonic and infrared sensors for precision navigation.
-- **3D Printed Mounts**: Ensures stable and adaptable sensor and component placement.
-
----
 
 
 
-## 🔧 Assembly Instructions
+##  Assembly Instructions
 
-### 🏗️ Chassis Assembly 
+### 🏗️Chassis Assembly 
 
 ≠
 
@@ -278,6 +269,36 @@ The plate includes cutouts for weight reduction and cable management, along with
 ## CHASSIS TOP FLOOR:
 <img width="1420" height="720" alt="image" src="https://github.com/user-attachments/assets/9e55ee47-a77b-4c2a-9d98-42b5f0e091a5" />
 
+Top & 3rd Floor – Electronics Section
+
+This floor of the chassis holds the core electronic components required for power regulation and motor control.
+
+Components
+
+Raspberry Pi 4B – Acts as the main controller, handling computation, control logic, and communication.
+
+XL4016 Buck Converter – Steps down the LiPo battery voltage to the levels required by the Raspberry Pi and other electronics.
+
+L293D Motor Driver – Provides motor control by supplying the necessary current and voltage to the DC motors.
+
+Power Switch – Allows safe shutdown and startup of the electronics.
+
+Veroboard – Serves as the wiring platform, connecting the Raspberry Pi, buck converter, motor driver, and switch.
+
+Functionality
+
+The LiPo battery powers the system.
+
+The buck converter regulates the voltage for stable Raspberry Pi operation.
+
+The L293D motor driver interfaces between the Raspberry Pi and the motors, enabling directional control.
+
+The veroboard ensures secure and organized wiring between all components.
+
+The switch provides overall power control for the floor.
+
+---
+---
 
 ### 🚗 Drive System
 
