@@ -39,7 +39,8 @@ Our team name, “PLADYTRON,” dances between the realms of play and technology
 
 ## Mohiuddin Sami  
 
-<img width="960" height="960" alt="image" src="https://github.com/user-attachments/assets/9fe250c6-b535-4f5a-a893-af4f384ab7f4" />
+<img width="960" height="960" alt="image" src="https://github.com/user-attachments/assets/223a0c30-3b4c-477a-b101-ca55ee2e311c" />
+
 
 
 **Age:** 17  
