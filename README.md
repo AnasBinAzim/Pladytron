@@ -329,9 +329,16 @@ The switch provides overall power control for the floor.
 </td>
     <td><img width="1445" height="814" alt="rightviewbot" src="https://github.com/user-attachments/assets/48038688-0663-4524-9830-18823f7520f6" />
 </td>
-
-### Full View
-<img width="750" height="803" alt="TILTEDIMAGE" src="https://github.com/user-attachments/assets/c5433842-003a-4661-bc8a-b4e99e60e329" />
+<tr>
+    <td align="center"><b>Top</b></td>
+    <td align="center"><b>Bottom</b></td>
+  </tr>
+  <tr>
+    <td><img width="750" height="803" alt="TILTEDIMAGE" src="https://github.com/user-attachments/assets/34c8f2c8-1b38-43ea-bd9b-fc0961c088fa" />
+</td>
+    <td><img width="913" height="751" alt="TILTEDIMAGE2" src="https://github.com/user-attachments/assets/509dffe8-03ed-4b18-a918-f46421be8c1f" />
+</td>
+  </tr>
 
 </table>
 
