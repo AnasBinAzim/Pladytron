@@ -331,8 +331,8 @@ The switch provides overall power control for the floor.
     <td><img width="1445" height="814" alt="rightviewbot" src="https://github.com/user-attachments/assets/48038688-0663-4524-9830-18823f7520f6" />
 </td>
 <tr>
-    <td align="center"><b>Top</b></td>
-    <td align="center"><b>Bottom</b></td>
+    <td align="center"><b>Tilt1</b></td>
+    <td align="center"><b>Tilt2</b></td>
   </tr>
   <tr>
     <td><img width="750" height="803" alt="TILTEDIMAGE" src="https://github.com/user-attachments/assets/34c8f2c8-1b38-43ea-bd9b-fc0961c088fa" />
