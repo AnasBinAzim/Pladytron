@@ -300,6 +300,46 @@ The switch provides overall power control for the floor.
 ---
 ---
 
+
+>[!IMPORTANT]
+> ALL THE STL AND DXF FILES ARE PROVIDED IN THE MODEL SECTION AND A PREVIEW OF THE WHOLE THING COMBINED IS GIVEN BELOW.
+---
+
+# TOTAL PREVIEW:
+
+## Model Views
+
+<table>
+  <tr>
+    <td align="center"><b>Front</b></td>
+    <td align="center"><b>Back</b></td>
+  </tr>
+  <tr>
+    <td><img width="684" height="848" alt="topviewbot" src="https://github.com/user-attachments/assets/6cafca59-a714-4fb3-8b99-1ff4383430e1" />
+</td>
+    <td><img width="544" height="831" alt="bottomviewbot" src="https://github.com/user-attachments/assets/36fe9b4a-93c7-4e48-aeeb-8a4c9824f216" />
+</td>
+  </tr>
+  <tr>
+    <td align="center"><b>Left</b></td>
+    <td align="center"><b>Right</b></td>
+  </tr>
+  <tr>
+    <td><img src="images/left.png" width="300"></td>
+    <td><img src="images/right.png" width="300"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Top</b></td>
+    <td align="center"><b>Bottom</b></td>
+  </tr>
+  <tr>
+    <td><img src="images/top.png" width="300"></td>
+    <td><img src="images/bottom.png" width="300"></td>
+  </tr>
+</table>
+
+
+
 ### Mobility Management:
 
 The mobility system of our robot has been meticulously designed to ensure smooth, efficient, and reliable movement, addressing both power distribution and maneuverability. This section outlines the evolution of our robot's mobility systems, including upgrades to the steering and gear systems.
