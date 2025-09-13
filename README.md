@@ -311,11 +311,12 @@ The switch provides overall power control for the floor.
 
 <table>
   <tr>
-    <td align="center"><b>Front</b></td>
-    <td align="center"><b>Back</b></td>
+    <td align="center"><b>Top</b></td>
+    <td align="center"><b>Bottom</b></td>
   </tr>
   <tr>
-    <td><img width="684" height="848" alt="topviewbot" src="https://github.com/user-attachments/assets/6cafca59-a714-4fb3-8b99-1ff4383430e1" />
+    <td><img width="544" height="831" alt="rsz_iwo" src="https://github.com/user-attachments/assets/3c0d04ae-508e-48ff-982b-fbca49025b40" />
+
 </td>
     <td><img width="544" height="831" alt="bottomviewbot" src="https://github.com/user-attachments/assets/36fe9b4a-93c7-4e48-aeeb-8a4c9824f216" />
 </td>
