@@ -525,7 +525,8 @@ The **Ackermann Steering System** ensures that the wheels of a vehicle turn at d
 <table>
   <tr>
     <td>
-      <img src="a7d38973-68b9-4c9b-b9b3-4630b78923c5.png" alt="MG90S Servo Motor" width="300"/>
+      <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/8dff8726-0ed9-43db-8c2c-620705a11548" />
+
     </td>
     <td>
       <h3>Specifications</h3>
