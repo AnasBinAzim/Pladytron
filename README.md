@@ -511,7 +511,7 @@ The **Ackermann Steering System** ensures that the wheels of a vehicle turn at d
 <table>
   <tr>
     <td>
-      <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/8dff8726-0ed9-43db-8c2c-620705a11548" />
+      <img width="613" height="493" alt="image" src="https://github.com/user-attachments/assets/edafe6d4-9394-49ea-980f-ddc946be1b3f" />
     </td>
     <td>
       <h3>Specifications</h3>
