@@ -547,6 +547,7 @@ The **Tower Pro MG90S** is a high-performance micro servo motor widely used in r
 It is known for its **metal gears**, **compact size**, and **high torque-to-weight ratio**, making it ideal for applications that require **precise angular positioning** and **fast response times**.  
 
 This servo is commonly used in **robotic arms**, **drone gimbals**, **RC cars**, and **steering mechanisms** where reliability and durability are essential.
+ 
 
 ---
 
@@ -575,6 +576,14 @@ This servo is commonly used in **robotic arms**, **drone gimbals**, **RC cars**,
 
 You can purchase the servo motor here:  
 👉 [Tower Pro MG90S - Cleste.ro](https://cleste.ro/motor-servo-mg90s-180g.html)
+
+
+**SERVO-HOLDER :
+
+<img width="1024" height="693" alt="image" src="https://github.com/user-attachments/assets/1c2fca76-6a78-4e12-b8b3-385626c73089" />
+
+
+
 
 
 
