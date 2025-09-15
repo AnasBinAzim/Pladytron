@@ -344,9 +344,10 @@ The switch provides overall power control for the floor.
 
 </table>
 
+---
+---
 
-
-### Mobility Management:
+# Mobility Management:
 
 The mobility system of our robot has been meticulously designed to ensure smooth, efficient, and reliable movement, addressing both power distribution and maneuverability. This section outlines the evolution of our robot's mobility systems, including upgrades to the steering and gear systems.
 
