@@ -583,6 +583,49 @@ You can purchase the servo motor here:
 <img width="1024" height="693" alt="image" src="https://github.com/user-attachments/assets/1c2fca76-6a78-4e12-b8b3-385626c73089" />
 
 
+# SG90 / MG90 Servo Holder
+
+This is a **servo motor holder/mount** designed for **SG90** and **MG90S micro servos**.  
+It provides a secure and stable way to fix the servo motor onto different surfaces such as a robot chassis, acrylic base, or wooden frame.
+
+---
+
+## Description
+- **Base Plate**  
+  - Flat rectangular plate with four mounting holes for screws/bolts.  
+  - Ensures rigid and stable installation.
+
+- **Servo Housing Slot**  
+  - Rectangular cavity designed to fit SG90/MG90S servos snugly.  
+  - Prevents unwanted servo movement during operation.
+
+- **Side Clamp with Screw Holes**  
+  - Two side holes allow tightening screws to hold the servo firmly.  
+  - Keeps the servo locked in position.
+
+- **Front Clearance**  
+  - Cutout at the front gives space for the servo horn/arm to rotate freely.  
+
+- **Open Bottom Section**  
+  - Provides cable clearance for the servo wiring.  
+  - Prevents wire stress and allows easy connections.
+
+---
+
+## Recommended Material
+- PLA for general hobby use  
+- PETG or ABS for higher durability and outdoor projects  
+
+---
+
+## Preview
+![Servo Holder](./servo_holder.png)
+
+---
+
+## Compatible Servos
+- Tower Pro SG90 Micro Servo  
+- Tower Pro MG90S Metal Gear Servo  
 
 
 
