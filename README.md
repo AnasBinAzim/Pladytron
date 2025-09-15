@@ -161,23 +161,9 @@ Our bot is equipped with various components that support its autonomous function
 
 
 
-##  Assembly Instructions
-
-### 🏗️Chassis Assembly 
-
-≠
+# Mobility Management :
 
 #### 🛠️ Chassis Assembly Process
-
-Here’s a step-by-step overview of the chassis assembly process using the LEGO 45560 Expansion Set:
-
-1. **Base Frame Construction**: Start by assembling the base frame using 5x11 and 5x7 beams for structural stability. These beams provide a strong foundation for mounting additional components.
-2. **Motor and Axle Integration**: Utilize the LEGO Technic beams and axle connectors to securely attach the motors. Ensure proper alignment to enable smooth and controlled movement.
-3. **Reinforcing with Angular Beams**: Use the 4x6 and 3x5 angular beams to reinforce corners and support areas where weight and stress are concentrated.
-4. **Mounting Sensors and Electronics**: Attach sensor mounts and electronic components using cross blocks and bushings, making sure they are aligned for efficient data capture and processing.
-5. **Gear Assembly for Differential Drive**: Assemble gears (8, 16, and 24-tooth gears) to create a differential drive system, allowing independent rotation of wheels for smooth turns.
-
----
 
 ## CHASSIS FIRST FLOOR : 
 
@@ -578,12 +564,12 @@ You can purchase the servo motor here:
 👉 [Tower Pro MG90S - Cleste.ro](https://cleste.ro/motor-servo-mg90s-180g.html)
 
 
-**SERVO-HOLDER :
+## SERVO-HOLDER :
 
 <img width="1024" height="693" alt="image" src="https://github.com/user-attachments/assets/1c2fca76-6a78-4e12-b8b3-385626c73089" />
 
 
-# SG90 / MG90 Servo Holder
+### SG90 / MG90 Servo Holder
 
 This is a **servo motor holder/mount** designed for **SG90** and **MG90S micro servos**.  
 It provides a secure and stable way to fix the servo motor onto different surfaces such as a robot chassis, acrylic base, or wooden frame.
