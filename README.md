@@ -516,6 +516,66 @@ The **Ackermann Steering System** ensures that the wheels of a vehicle turn at d
 2. **Energy Savings**: Reduces power loss caused by wheel drag.
 3. **Realistic Simulation**: Mirrors real-world vehicle steering.
 
+---
+---
+
+## **SERVO MOTOR :** 
+# Servo Motor - Tower Pro MG90S
+
+<table>
+  <tr>
+    <td>
+      <img src="a7d38973-68b9-4c9b-b9b3-4630b78923c5.png" alt="MG90S Servo Motor" width="300"/>
+    </td>
+    <td>
+      <h3>Specifications</h3>
+      <ul>
+        <li><strong>Weight:</strong> 13.4g</li>
+        <li><strong>Stall torque:</strong> 2.2 kgf·cm (6V)</li>
+        <li><strong>Operating speed:</strong> 0.08 s/60° (6V)</li>
+        <li><strong>Rotation angle:</strong> 120°</li>
+        <li><strong>Gear type:</strong> Metal gears</li>
+        <li><strong>Operating voltage:</strong> 4.8V – 6V</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+---
+
+The **Tower Pro MG90S** is a high-performance micro servo motor widely used in robotics, RC vehicles, and automation projects.  
+It is known for its **metal gears**, **compact size**, and **high torque-to-weight ratio**, making it ideal for applications that require **precise angular positioning** and **fast response times**.  
+
+This servo is commonly used in **robotic arms**, **drone gimbals**, **RC cars**, and **steering mechanisms** where reliability and durability are essential.
+
+---
+
+## Features
+
+- Compact and lightweight design suitable for small projects.  
+- High precision with fast response time.  
+- Durable metal gear construction for longer lifespan.  
+- Compatible with standard PWM servo control signals.  
+- Ideal for applications requiring accurate control of angular movement.  
+
+---
+
+## Applications
+
+- RC planes, cars, and boats  
+- Robotics (arms, grippers, walkers)  
+- Camera gimbals and pan-tilt systems  
+- DIY automation projects  
+- Steering mechanisms for small vehicles  
+
+---
+
+
+## Where to Buy
+
+You can purchase the servo motor here:  
+👉 [Tower Pro MG90S - Cleste.ro](https://cleste.ro/motor-servo-mg90s-180g.html)
+
 
 
 # ⚡ Electronics and Power System
