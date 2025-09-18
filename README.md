@@ -1,11 +1,12 @@
 # 🤖 ** INTRODUCING TEAM PLADYTRON - WRO 2025 ** 🤖
-# UPDATE: We placed 20th on the World Robot Olympiad 2024 (Turkey)
 <div align="center">
   <img width="1280" height="568" alt="image" src="https://github.com/user-attachments/assets/930fa959-45ad-4a6b-877a-23a41c0a6785" />
 
 </div>
 
-## 🌟 Team Members
+
+## 👥 **Team PLADYTRON**
+
 
 | 👤 Name               | 🎓 Institution                          | 📚 Class/Year       | 🎂 Age  |
 |----------------------|-----------------------------------------|---------------------|---------|
@@ -14,12 +15,16 @@
 
 ---
 
-## 👥 **Team PLADYTRON**
-
-- **Anas Bin Azim**  – Software & Hardware Developer | [anas.azim.71@gmail.com](mailto:anas.azim.71@gmail.com)
-- **Mohiuddin Sami** – Primary Software Developer | [sm.mohiuddin.sami@gmail.com](mailto:sm.mohiuddin.sami@gmail.com)
-
 **Team Origin**: Bangladesh
+
+---
+
+
+## 🏅 Achievements
+
+- 🥇 **Champion, WRO Bangladesh 2024 (Future Engineers)**
+- 🌍 20th place **WRO International in Izmir, Turkey**
+- 🛠 Multiple national awards in robotics, AI, and innovation
 
 ---
 
