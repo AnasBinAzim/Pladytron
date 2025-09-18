@@ -5,6 +5,13 @@
 
 </div>
 
+## 🌟 Team Members
+
+| 👤 Name               | 🎓 Institution                          | 📚 Class/Year       | 🎂 Age  |
+|----------------------|-----------------------------------------|---------------------|---------|
+| **Anas Bin Azim**    | Adamjee Cantonment College              | Class XII           | 17      |
+| **SM Mohiuddin Sami**| Rajuk Uttara Model College              | Class XII           | 17      |
+
 ---
 
 ## 👥 **Team PLADYTRON**
