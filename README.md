@@ -813,6 +813,25 @@ onents from voltage fluctuations. Overall, this design highlights the importance
 
 Compared to our earlier design, the new PCB introduces several improvements aimed at stability, modularity, and ease of use. The earlier version primarily served as a basic power distribution board with buck converters and minimal control features. In this revised version, additional attention has been given to **structured wiring via ribbon connectors**, improved **switching and manual control through a larger rocker and push button**, and **better integration of the buck converter section** with heat dissipation. The placement of capacitors, inductor coil, and screw terminals has been optimized for cleaner power flow, and the routing now reduces noise and voltage drops across the board. Overall, the new design is more robust, reliable, and serviceable compared to the prototype.  
 
+# *CIRCUITDIAGRAM* :
+<img width="768" height="1280" alt="image" src="https://github.com/user-attachments/assets/fe85c0f9-0318-444e-8400-203f2f47621a" />
+
+# Explanation:
+
+This circuit integrates the Raspberry Pi GPIO header with a set of sensors, actuators, and motor driver modules, forming the control and power distribution system for a small robot. The Raspberry Pi acts as the central controller, sending signals to motors, servos, and indicators while also receiving sensor feedback to make decisions in real time.
+At the top of the diagram, we see the Raspberry Pi GPIO pinout, which is the core interface between the Pi and external devices. Each pin can be configured as an input or output, supplying logic-level signals (3.3V) that control the connected hardware. The Pi provides 5V and 3.3V power rails, as well as ground connections, which are distributed to all modules in the circuit.
+A servo motor is connected to the Pi using three wires: VCC (power), GND (ground), and the SIGNAL pin, which is linked to one of the Pi’s PWM-enabled GPIO pins. This allows the Pi to control the servo angle precisely using PWM (Pulse Width Modulation). Servos are typically used for steering mechanisms or angular adjustments in robots, so this one is likely managing the robot’s front wheel alignment or a pan/tilt system.
+On the left side of the circuit, a push button and an LED are wired into the GPIO header. The push button is used as a digital input — when pressed, it connects the GPIO pin to ground, sending a low signal to the Pi. This can be used for resets, mode changes, or manual overrides. The LED, on the other hand, is controlled through a GPIO pin as an output. It provides visual feedback, such as power status, errors, or activity indicators, allowing the operator to easily monitor the robot’s state.
+At the bottom, the L293D motor driver IC is connected between the Pi and a DC motor. The Pi itself cannot supply enough current to directly drive motors, so the L293D acts as a buffer and amplifier. It uses the low-current logic signals from the Pi to control the higher-current flow from the battery to the motor. This enables bidirectional motor control (forward and backward rotation) and also supports PWM for speed regulation. In this configuration, the motor shown is most likely one of the drive motors that moves the robot’s wheels.
+On the right side, we see an MPU-6050 IMU (Inertial Measurement Unit) connected via I²C communication. The SDA (data) and SCL (clock) lines run from the Pi’s GPIO header to the sensor module, with VCC and GND providing power. The MPU-6050 combines a 3-axis gyroscope and a 3-axis accelerometer, which together measure angular velocity and linear acceleration. This data is essential for balance, orientation, and navigation, particularly in robots that need to track their motion or maintain stability on uneven terrain.
+Next to it is a buck converter module (with a heatsink and inductor coil). This component regulates the battery voltage down to safe levels required by the Raspberry Pi, motors, and sensors. Since motors can cause voltage fluctuations when they start or stop, the buck converter ensures that the Pi always receives a clean and stable supply. The input of the buck converter comes directly from the main battery (Li-ion cells), and the outputs are distributed to different subsystems: 5V for the Pi and ESP32, 6V for the servo, and 12V (via buck-boost regulation) for the motors.
+The wiring shows how all the power rails (red for positive, black for ground, and green/yellow/orange for signals) are carefully routed to prevent noise and maintain clear separation between logic-level signals and high-current motor wiring. The Pi orchestrates everything: it reads the sensor data from the MPU-6050, processes input from the push button, controls the LED for feedback, drives the servo motor with PWM, and commands the DC motor through the L293D motor driver.
+
+---
+# *SCHEMATIC FOR THE NERDS* : 
+<img width="729" height="463" alt="image" src="https://github.com/user-attachments/assets/b49c9fba-4add-4737-b6da-5110258971ce" />
+
+
 
 ### 🎥 Camera Placement and Functionality
 
@@ -824,26 +843,6 @@ The camera feeds data to the **Raspberry Pi 4**, which processes image recogniti
 
 ---
 
-### 📡 Sonar Mount Design
-
-### 🛠️ Previous Design
-In our earlier design, we used **HC-SR04 sonar sensors** placed at **45-degree angles**, mounted horizontally on two sides of the robot, with one sensor placed vertically in the middle. This configuration provided basic obstacle detection but had limitations:
-- **🚫 Blind Spots**: The horizontal placement created gaps in detection range at certain angles.
-- **⚠️ Inconsistent Readings**: The 45-degree angle sometimes caused inaccuracies due to signal reflections.
-
-### 🔄 Why We Switched
-After analyzing performance during testing, we made significant improvements:
-- Replaced the 45-degree sensors with sensors mounted at **15 degrees**.
-- Mounted the sensors **vertically on all sides**, ensuring:
-  - **🛑 Improved Obstacle Detection**: Enhanced accuracy and coverage around the robot.
-  - **📏 Better Range Consistency**: Reduced signal reflection issues for more reliable readings.
-
-###  Current Design
-The new configuration leverages **HC-SR04 sonar sensors**, chosen for their **wide availability** and **affordable price**. The updated design provides:
-- **360° Coverage**: Vertical mounting eliminates blind spots.
-- **Early Detection**: Enhanced obstacle sensing allows for quicker decision-making.
-
----
 
 
 >[!IMPORTANT]
