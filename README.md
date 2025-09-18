@@ -624,19 +624,12 @@ It provides a secure and stable way to fix the servo motor onto different surfac
 - PLA for general hobby use  
 - PETG or ABS for higher durability and outdoor projects  
 
----
-
-## Preview
-![Servo Holder](./servo_holder.png)
-
----
-
 ## Compatible Servos
 - Tower Pro SG90 Micro Servo  
 - Tower Pro MG90S Metal Gear Servo  
 
 
-
+Thats all for mobile management.
 ---
 ---
 
