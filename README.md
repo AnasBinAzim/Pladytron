@@ -659,15 +659,15 @@ In this project, the Raspberry Pi 4B acts as the **central brain**, handling com
 
 ---
 
-## GPIO PINOUT OF RPI 4B : 
+## **GPIO PINOUT OF RPI 4B** : 
 
-## **GPIO Pinout :**  
+
 # Raspberry Pi 4 Model B GPIO (40-pin Header)
 
 <table>
   <tr>
     <td>
-      <img width="500" height="500" alt="Raspberry Pi 4B GPIO Pinout" src="images/rpi4b_gpio.png" />
+      <img width="1536" height="954" alt="image" src="https://github.com/user-attachments/assets/4aea45b9-b590-47f6-ac44-85fbfb811bca" />
     </td>
     <td>
       <h3>Specifications</h3>
@@ -703,10 +703,69 @@ This GPIO header is the bridge between the Raspberry Pi and the physical world, 
 ---
 ---
 
-## BUCK CONVERTER (8.4 TO 5V) :
+## **BUCK CONVERTER** (8.4 TO 5V) : 
+### XL4016 DC-DC Step-Down Module
+
+<table>
+  <tr>
+    <td>
+      <img width="1000" height="661" alt="image" src="https://github.com/user-attachments/assets/85deceb0-6c83-4362-b530-df1353a46600" />
+    </td>
+    <td>
+      <h3>Specifications</h3>
+      <ul>
+        <li><strong>Chipset:</strong> XL4016E1 DC-DC Buck Converter</li>
+        <li><strong>Input Voltage:</strong> 8V – 36V DC</li>
+        <li><strong>Output Voltage:</strong> 1.25V – 32V DC (adjustable)</li>
+        <li><strong>Output Current:</strong> Up to 8A (continuous), 12A peak</li>
+        <li><strong>Conversion Efficiency:</strong> Up to 95%</li>
+        <li><strong>Switching Frequency:</strong> ~180 kHz</li>
+        <li><strong>Protections:</strong> Over-current, thermal shutdown</li>
+        <li><strong>Heat Dissipation:</strong> Integrated heatsink for stability under high load</li>
+        <li><strong>Dimensions:</strong> 60mm × 52mm × 20mm (approx.)</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+---
+
+The **XL4016 buck converter** is a high-power DC–DC step-down module designed to provide stable and efficient voltage regulation for robotics, automation, and embedded systems. With an input range of 8–36V and an adjustable output from 1.25–32V, it is highly versatile and can power a wide variety of subsystems from a single battery source. Its ability to deliver up to **8A of continuous current** (with peaks of 12A) makes it suitable for driving motor controllers, Raspberry Pi boards, and other current-hungry electronics simultaneously. The module achieves up to 95% efficiency, reducing energy losses and minimizing heat buildup. The integrated heatsink ensures stable operation even under heavy loads, while built-in protection circuits safeguard against over-current and thermal issues. For robotics applications, the XL4016 is often recommended because it allows a single Li-Po or Li-ion battery pack to be safely stepped down to multiple regulated voltages, ensuring reliable operation of both logic-level electronics and power-hungry actuators.
 
 
 
+---
+
+## **Sensor :**  
+# MPU-6050 6-Axis Gyroscope and Accelerometer
+
+<table>
+  <tr>
+    <td>
+      <img width="500" height="400" alt="MPU-6050 Gyro Accelerometer" src="images/mpu6050.png" />
+    </td>
+    <td>
+      <h3>Specifications</h3>
+      <ul>
+        <li><strong>Chipset:</strong> InvenSense MPU-6050</li>
+        <li><strong>Sensor Type:</strong> 3-axis gyroscope + 3-axis accelerometer</li>
+        <li><strong>Operating Voltage:</strong> 3V – 5V</li>
+        <li><strong>Communication Interface:</strong> I²C (default address 0x68)</li>
+        <li><strong>Gyroscope Range:</strong> ±250, ±500, ±1000, ±2000 °/s</li>
+        <li><strong>Accelerometer Range:</strong> ±2g, ±4g, ±8g, ±16g</li>
+        <li><strong>Sampling Rate:</strong> Up to 1 kHz</li>
+        <li><strong>Digital Motion Processor (DMP):</strong> Built-in for sensor fusion</li>
+        <li><strong>Dimensions:</strong> ~20mm × 15mm × 2mm (module size varies)</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+---
+
+The **MPU-6050** is a 6-axis motion tracking sensor that integrates a **3-axis gyroscope** and a **3-axis accelerometer** on a single chip, making it one of the most widely used sensors in robotics and embedded systems. It communicates via the I²C protocol, which allows it to connect easily to microcontrollers like the Arduino, ESP32, or Raspberry Pi. The sensor provides motion data across multiple selectable ranges, with gyroscope sensitivity from ±250 to ±2000 degrees per second and accelerometer ranges from ±2g to ±16g. This versatility makes it suitable for detecting orientation, angular velocity, and linear acceleration in real time. The built-in **Digital Motion Processor (DMP)** can handle sensor fusion internally, combining gyro and accelerometer data to output stable orientation values, reducing the computational load on the main controller. For robotics, the MPU-6050 is commonly used in balancing robots, drones, navigation systems, and motion-controlled projects, where accurate and responsive motion sensing is essential for stability and control.
+
+---
 ## OUR PREVIOUS PCB 
 
 | **Top View of PCB** | **Bottom View of PCB** | **Power Management Diagram** |
