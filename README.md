@@ -45,7 +45,7 @@ Our team name, “PLADYTRON,” dances between the realms of play and technology
 
 **High School:** Adamjee Cantonment College, Dhaka 
 
-**Description:** [Hi! I’m Anas from Bangladesh and this is my second WRO International season. In 2024, I had the honor of representing Team Mayerdoa Robotics at the World Robot Olympiad in Turkey, where we proudly placed 20th in the Future Engineers category. I’ve been deeply involved in robotics for over 4 years, building autonomous systems and competing in both national and international competitions. Beyond robotics, I’m passionate about programming, innovation, quizzing, traveling, and playing cricket]  
+**Description:** Hi! I’m Anas from Bangladesh and this is my second WRO International season. In 2024, I had the honor of representing Team Mayerdoa Robotics at the World Robot Olympiad in Turkey, where we proudly placed 20th in the Future Engineers category. I’ve been deeply involved in robotics for over 4 years, building autonomous systems and competing in both national and international competitions. Beyond robotics, I’m passionate about programming, innovation, quizzing, traveling, and playing cricket]  
 
 ---
 
@@ -59,7 +59,7 @@ Our team name, “PLADYTRON,” dances between the realms of play and technology
 
 **High School:** Rajuk Uttara Model College, Dhaka 
 
-**Description:** [.]  
+**Description:** Hi! I’m Sayed Md. Mohiuddin Sami from Rajuk Uttara Model College. I’ve been part of the BDOI camp for 2 years and have spent the last 2 years working in robotics and WRO. In 2024, I had the chance to represent Bangladesh at the World Robot Olympiad International Finals in Turkey. I’ve also been doing competitive programming for 4 years, which has helped me grow in problem-solving and logical thinking. Outside of robotics and coding, I enjoy quizzing, traveling, and exploring new ideas.
 
 
 ## 🎉 Project Overview
