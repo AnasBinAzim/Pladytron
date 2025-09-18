@@ -637,24 +637,57 @@ It provides a secure and stable way to fix the servo motor onto different surfac
 
 
 
-
-# ⚡ Electronics and Power System
-
-- **Power Module**: Ensures consistent power to the Raspberry Pi and ESP32.
-- **Wiring**: Organized to minimize interference.
-
-----
-----
-----
-
+---
+---
 
 
 # ⚡ Power and Sense Management
 
 The **Power and Sense Management** system of our robot has been meticulously designed to optimize performance while ensuring reliable power delivery, precise sensing, and efficient communication between components.
 
+
 ---
-## 🔋 Power Distribution
+---
+
+# Battery :
+
+## **Battery :**  
+# Gens Ace Airsoft 3S Li-Po Battery (11.1V 1500mAh 35C)
+
+<table>
+  <tr>
+    <td>
+      <img width="691" height="515" alt="image" src="https://github.com/user-attachments/assets/c00bcd1d-fe7d-433a-b076-1cb49fd29212" />
+    </td>
+    <td>
+      <h3>Specifications</h3>
+      <ul>
+        <li><strong>Brand:</strong> Gens Ace Airsoft</li>
+        <li><strong>Battery Type:</strong> Li-Po (Lithium Polymer)</li>
+        <li><strong>Nominal Voltage:</strong> 11.1V (3S)</li>
+        <li><strong>Capacity:</strong> 1500 mAh</li>
+        <li><strong>Energy:</strong> 16.65 Wh</li>
+        <li><strong>Discharge Rate:</strong> 35C</li>
+        <li><strong>Connector Type:</strong> T-Plug / Deans Connector</li>
+        <li><strong>Balance Plug:</strong> JST-XH</li>
+        <li><strong>Weight:</strong> ~120g</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+---
+
+The **Gens Ace 3S Li-Po battery** is a lightweight and powerful energy source designed for high-performance robotics, drones, RC vehicles, and airsoft equipment.  
+With a **capacity of 1500mAh** and a **35C discharge rating**, it delivers consistent current output suitable for motors, sensors, and controllers that require stable power.  
+Its **compact size and low weight** make it easy to integrate into mobile robotic platforms.  
+The built-in **Deans/T-Plug connector** ensures low-resistance power delivery, while the **JST-XH balance connector** allows for safe charging and cell balancing.  
+
+This battery is ideal for applications requiring **high burst currents, reliability, and long cycle life**, making it a solid choice for powering small-to-medium robotics systems.
+
+
+---
+##  Power Distribution
 
 Our robot's power system has been engineered for stability and efficiency, addressing all unique voltage and current requirements:
 1. **🔋 Two Lithium-Ion Cells**: Each rated at **4.2V**, providing a total of **8.4V**.
@@ -672,7 +705,7 @@ The robot's main camera is positioned at the top and angled slightly downwards. 
 - **🔍 Close-Range Detection**: The camera can identify objects in close proximity with high accuracy.
 - **🌐 Extended-Range Detection**: Ensures objects further away are detected effectively.
 
-The camera feeds data to the **Raspberry Pi 5**, which processes image recognition algorithms to detect towers and corner lines. The processed data is then transmitted to the **ESP32 microcontroller** for real-time navigation and obstacle avoidance.
+The camera feeds data to the **Raspberry Pi 4**, which processes image recognition algorithms to detect towers and corner lines. The processed data is then transmitted to the **ESP32 microcontroller** for real-time navigation and obstacle avoidance.
 
 ---
 
@@ -690,7 +723,7 @@ After analyzing performance during testing, we made significant improvements:
   - **🛑 Improved Obstacle Detection**: Enhanced accuracy and coverage around the robot.
   - **📏 Better Range Consistency**: Reduced signal reflection issues for more reliable readings.
 
-### 🚀 Current Design
+###  Current Design
 The new configuration leverages **HC-SR04 sonar sensors**, chosen for their **wide availability** and **affordable price**. The updated design provides:
 - **360° Coverage**: Vertical mounting eliminates blind spots.
 - **Early Detection**: Enhanced obstacle sensing allows for quicker decision-making.
@@ -706,16 +739,16 @@ The new configuration leverages **HC-SR04 sonar sensors**, chosen for their **wi
 ---
 ---
 
-## 🛠️ PCB Design
+## Power Regulation and Control PCB
 
-We have developed a **custom hand-designed PCB** to streamline the robot's power distribution and sensor integration. The PCB offers:
-- **📐 Optimized Layout**: Minimizing signal interference for reliable performance.
-- **🎯 Compact Design**: Saving space within the robot's chassis.
-- **💪 Enhanced Durability**: Ensuring longevity during competitive operation.
+This PCB is a custom-made prototyping board that acts as the main power regulation and control hub of the robot. It integrates a red rocker switch as the primary ON/OFF control, a large red push button for reset or emergency stop functions, and a green LED that indicates when the system is active. Flat ribbon cables connect the board to the Raspberry Pi or Arduino, carrying essential GPIO signals. The lower section features a copper coil, multiple electrolytic capacitors, and MOSFETs/regulators that form a DC–DC converter, ensuring stable power delivery from the battery to different subsystems. Blue trimpots allow precise voltage calibration, while a screw terminal block provides secure connections for input and output wiring. Altogether, this PCB manages distribution, stabilization, and manual control of power, making it a central part of the robot’s electronic system.
+
+![PCB Overview](dc381c7b-e720-4e5c-8d6c-acde376fd400.png)
+
 
 ---
 
-## 🖼️ System Visuals
+## OUR PREVIOUS PCB 
 
 | **Top View of PCB** | **Bottom View of PCB** | **Power Management Diagram** |
 |----------------------|------------------------|-------------------------------|
