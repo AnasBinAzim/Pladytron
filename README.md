@@ -128,12 +128,6 @@ Here’s a breakdown of the project folders:
 ----
 
 
-
-
-
-
-Our bot, **SMOKI**, is built for excellence in the **World Robot Olympiad 2024** in the Future Engineers category. From its structural core using LEGO Technic elements to its computing capabilities powered by the **Raspberry Pi 5** and **ESP32 microcontroller**, SMOKI is crafted to handle the nuanced challenges of autonomous navigation and obstacle handling.
-
 ---
 
 ### Mission Overview for WRO Future Engineers Rounds
