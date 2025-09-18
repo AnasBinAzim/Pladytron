@@ -575,19 +575,12 @@ The bottom of the mount is left open to provide space for the servo’s wiring t
 In terms of material, PLA is often sufficient for hobby projects where light loads and indoor conditions are expected. However, for applications requiring greater durability or exposure to outdoor environments, PETG or ABS is recommended since both materials offer improved toughness and resistance to stress compared to PLA. The mount’s design is fully compatible with Tower Pro SG90 and MG90S servos, making it versatile for use across a wide range of robotic and automation projects where these micro servos are commonly deployed.
 
 
-
+---
+---
 # ⚡ Power and Sense Management
 
 The **Power and Sense Management** system of our robot has been meticulously designed to optimize performance while ensuring reliable power delivery, precise sensing, and efficient communication between components.
-
-
----
----
-
-# Battery :
-
-## **Battery :**  
-# Gens Ace Airsoft 3S Li-Po Battery (11.1V 1500mAh 35C)
+# Battery: Gens Ace Airsoft 3S Li-Po Battery (11.1V 1500mAh 35C)
 
 <table>
   <tr>
@@ -621,9 +614,8 @@ The built-in **Deans/T-Plug connector** ensures low-resistance power delivery, w
 This battery is ideal for applications requiring **high burst currents, reliability, and long cycle life**, making it a solid choice for powering small-to-medium robotics systems.
 
 ---
-## Main Controller :
 
-## **Microcontroller :**  
+# **Microcontroller :**  
 # Raspberry Pi 4 Model B
 
 <table>
@@ -796,26 +788,31 @@ The **MPU-6050** is a 6-axis motion tracking sensor that integrates a **3-axis g
 ---
 
 The **SJCAM C200** is a compact 4K action camera designed for high-quality video and photo capture in robotics, drones, and field-testing environments. It features a **154° wide-angle lens**, making it well-suited for wide field-of-view applications such as navigation, mapping, and vision-based obstacle detection. The camera supports recording at multiple resolutions, including **4K at 24fps** and **1080p at 60fps**, giving flexibility between image detail and frame rate depending on the task. With a removable **1200mAh battery** and **USB-C charging**, it provides convenient power management, while Wi-Fi connectivity allows real-time preview and data transfer to companion devices. Its rugged design makes it waterproof up to 5m without housing and up to 30m with an additional case, ensuring reliable performance in outdoor and challenging environments. For robotics projects, the SJCAM C200 is an excellent choice as a vision module, balancing portability, durability, and high-definition imaging in a small and versatile package.
+---
+---
 
-## OUR PREVIOUS PCB 
+# *PCB*  
+## Previous PCB Design and Power Distribution  
 
 | **Top View of PCB** | **Bottom View of PCB** | **Power Management Diagram** |
 |----------------------|------------------------|-------------------------------|
-| <img src="https://github.com/user-attachments/assets/be051834-2c23-495e-9aa1-83d9620e1524" width="400"/> | <img src="https://github.com/user-attachments/assets/45d68411-f99a-4ef4-8aef-c63eb856a8e1" width="400"/> | <img src="https://github.com/user-attachments/assets/0f01372c-1cff-4ff7-b65b-5e5a5ca5f" />
+| <img src="https://github.com/user-attachments/assets/be051834-2c23-495e-9aa1-83d9620e1524" width="400"/> | <img src="https://github.com/user-attachments/assets/45d68411-f99a-4ef4-8aef-c63eb856a8e1" width="400"/> | <img src="https://github.com/user-attachments/assets/0f01372c-1cff-4ff7-b65b-5e5a5ca5f" width="400"/> |
 
 ---
----
-##  Power Distribution
 
-Our robot's power system has been engineered for stability and efficiency, addressing all unique voltage and current requirements:
-1. **🔋 Two Lithium-Ion Cells**: Each rated at **4.2V**, providing a total of **8.4V**.
-2. **⚙️ XL4016 Buck Converter**: Steps down **8.4V** to a stable **5V** for powering the Raspberry Pi 5 and other components.
-3. **🔌 Buck Modules**:
-   - One module supplies **6V** for the servo motor.
-   - Another module provides **5V** for the ESP32 microcontroller.
-4. **⚡ 12V Power for Motors**: Delivered using a **Buck-Boost Converter** to ensure consistent motor performance.
+The PCB shown above was designed as the **central power management and distribution unit** for the robot, ensuring that every subsystem received the correct voltage and current for stable operation. The board draws power from two **Lithium-Ion cells**, each rated at 4.2V, providing a combined supply of **8.4V** when fully charged. This input is then carefully regulated using multiple DC–DC converters to meet the diverse requirements of the system.  
+
+At the heart of the regulation stage, an **XL4016 buck converter** steps the 8.4V battery voltage down to a stable **5V rail**, which powers the **Raspberry Pi 5** and other core electronics. Additional buck converter modules are integrated to provide subsystem-specific voltages: one module regulates to **6V for the servo motor**, while another supplies **5V dedicated to the ESP32 microcontroller**, ensuring isolation and consistent operation. For the high-power motors, the PCB incorporates a **buck-boost converter** that outputs **12V**, guaranteeing reliable torque and speed even as the battery voltage drops during operation.  
+
+This combination of regulated rails allows the robot to operate multiple controllers, sensors, and actuators from a single compact PCB without instability or power loss. By integrating switching converters and carefully routing the distribution, the board minimizes heat, maximizes efficiency, and protects sensitive comp
+onents from voltage fluctuations. Overall, this design highlights the importance of structured power management in robotics, where both logic-level devices and power-hungry actuators must coexist seamlessly on the same platform.
 
 ---
+# *CurrentPCB* :
+<img width="960" height="1280" alt="image" src="https://github.com/user-attachments/assets/3ddcdbbd-1733-4c6f-bdf9-c9cbbeae69e3" />
+
+Compared to our earlier design, the new PCB introduces several improvements aimed at stability, modularity, and ease of use. The earlier version primarily served as a basic power distribution board with buck converters and minimal control features. In this revised version, additional attention has been given to **structured wiring via ribbon connectors**, improved **switching and manual control through a larger rocker and push button**, and **better integration of the buck converter section** with heat dissipation. The placement of capacitors, inductor coil, and screw terminals has been optimized for cleaner power flow, and the routing now reduces noise and voltage drops across the board. Overall, the new design is more robust, reliable, and serviceable compared to the prototype.  
+
 
 ### 🎥 Camera Placement and Functionality
 
