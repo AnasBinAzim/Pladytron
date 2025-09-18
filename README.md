@@ -55,19 +55,45 @@ Our team name, “PLADYTRON,” dances between the realms of play and technology
 
 This repository includes all files, designs, and code for **SMOKI**, our WRO 2024 robot. Below is the folder structure:
 
-## 📂 Structure
 Here’s a breakdown of the project folders:
 
-- **`models`**: Contains 3D models and CAD designs.
-- **`others`**: Additional documents and miscellaneous files.
-- **`schematic`**: Wiring and circuit design diagrams.
-- **`src`**: Source code for robot programming.
-- **`system-setup`**: Steps for software and hardware setup.
-- **`t-photos`**: Technical images of the robot build.
-- **`v-photos`**: Visual photos for aesthetics and showcasing.
-- **`video`**: Performance and demo videos of SMOKI.
-- **`experiments`**: Documentation of trials and iterations with previous models.
-- **`license`**: License information for the project.
+## 📑 Table of Contents
+
+- [Code](./Code)  
+  Source code files and test scripts for the robot.  
+
+- [Software Setup](./Software-Setup)  
+  Instructions, configuration files, and setup scripts for running the project.  
+
+- [WRO 2024 Future Engineers: Self-Driving Project](./WRO-2024-Future-Engineers-Self-Driving...)  
+  Competition-related files and documentation.  
+
+- [Experiments](./experiments)  
+  Prototype tests, trial runs, and experimental results.  
+
+- [Model](./model)  
+  CAD designs, 3D models, or system architecture references.  
+
+- [Problems and Solutions](./problemsandsolutions)  
+  Documentation of challenges faced and how they were solved.  
+
+- [Schematic](./schematic)  
+  Circuit diagrams, PCB schematics, and wiring documentation.  
+
+- [Source (src)](./src)  
+  Main source code base for the robot’s core functionalities.  
+
+- [t-photos](./t-photos)  
+  Top/technical view photos of the robot and components.  
+
+- [v-photos](./v-photos)  
+  Various view photos (front, back, side, etc.) for documentation.  
+
+- [Video](./video)  
+  Demo and test run videos.  
+
+- [README.md](./README.md)  
+  Main project documentation file (this file).
 
 ---
 
