@@ -8,9 +8,7 @@ The solution was drastic but effective: we removed the action camera role entire
 
 | **Before (SJCAM C200 Action Camera Mode)** | **After (Rewired for Auto PC Camera Mode)** |
 |---------------------------------------------|---------------------------------------------|
-|<img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/9dba0dc6-bd10-484f-b9a8-f090cf1020c0" />
- | <img width="202" height="321" alt="image" src="https://github.com/user-attachments/assets/09362b7b-ded8-45f0-9df3-c3d53b894797" />
- |
+|<img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/9dba0dc6-bd10-484f-b9a8-f090cf1020c0" /> | <img width="202" height="321" alt="image" src="https://github.com/user-attachments/assets/09362b7b-ded8-45f0-9df3-c3d53b894797" />|
 
 
 
