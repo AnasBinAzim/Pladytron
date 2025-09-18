@@ -742,7 +742,7 @@ The **XL4016 buck converter** is a high-power DC–DC step-down module designed 
 <table>
   <tr>
     <td>
-      <img width="500" height="400" alt="MPU-6050 Gyro Accelerometer" src="images/mpu6050.png" />
+      <img width="535" height="677" alt="image" src="https://github.com/user-attachments/assets/9a91676b-a7fa-4c22-8b1e-426d473f775b" />
     </td>
     <td>
       <h3>Specifications</h3>
@@ -766,6 +766,37 @@ The **XL4016 buck converter** is a high-power DC–DC step-down module designed 
 The **MPU-6050** is a 6-axis motion tracking sensor that integrates a **3-axis gyroscope** and a **3-axis accelerometer** on a single chip, making it one of the most widely used sensors in robotics and embedded systems. It communicates via the I²C protocol, which allows it to connect easily to microcontrollers like the Arduino, ESP32, or Raspberry Pi. The sensor provides motion data across multiple selectable ranges, with gyroscope sensitivity from ±250 to ±2000 degrees per second and accelerometer ranges from ±2g to ±16g. This versatility makes it suitable for detecting orientation, angular velocity, and linear acceleration in real time. The built-in **Digital Motion Processor (DMP)** can handle sensor fusion internally, combining gyro and accelerometer data to output stable orientation values, reducing the computational load on the main controller. For robotics, the MPU-6050 is commonly used in balancing robots, drones, navigation systems, and motion-controlled projects, where accurate and responsive motion sensing is essential for stability and control.
 
 ---
+
+## **Camera :**  
+# SJCAM C200 Action Camera
+
+<table>
+  <tr>
+    <td>
+      <img width="268" height="471" alt="image" src="https://github.com/user-attachments/assets/cd978e9f-b1fa-4f9d-8e7e-16a7fe57d2f6" />
+    </td>
+    <td>
+      <h3>Specifications</h3>
+      <ul>
+        <li><strong>Sensor:</strong> 4K CMOS image sensor</li>
+        <li><strong>Video Resolution:</strong> 4K @ 24fps, 2K @ 30fps, 1080p @ 60fps</li>
+        <li><strong>Photo Resolution:</strong> Up to 16MP</li>
+        <li><strong>Lens:</strong> 154° wide-angle lens</li>
+        <li><strong>Display:</strong> 1.3-inch front screen + status indicators</li>
+        <li><strong>Battery:</strong> 1200mAh (removable, USB-C charging)</li>
+        <li><strong>Connectivity:</strong> Wi-Fi, USB-C</li>
+        <li><strong>Storage:</strong> MicroSD card up to 128GB</li>
+        <li><strong>Waterproof:</strong> Up to 5m without case, 30m with case</li>
+        <li><strong>Dimensions:</strong> ~68mm × 32mm × 26mm</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+---
+
+The **SJCAM C200** is a compact 4K action camera designed for high-quality video and photo capture in robotics, drones, and field-testing environments. It features a **154° wide-angle lens**, making it well-suited for wide field-of-view applications such as navigation, mapping, and vision-based obstacle detection. The camera supports recording at multiple resolutions, including **4K at 24fps** and **1080p at 60fps**, giving flexibility between image detail and frame rate depending on the task. With a removable **1200mAh battery** and **USB-C charging**, it provides convenient power management, while Wi-Fi connectivity allows real-time preview and data transfer to companion devices. Its rugged design makes it waterproof up to 5m without housing and up to 30m with an additional case, ensuring reliable performance in outdoor and challenging environments. For robotics projects, the SJCAM C200 is an excellent choice as a vision module, balancing portability, durability, and high-definition imaging in a small and versatile package.
+
 ## OUR PREVIOUS PCB 
 
 | **Top View of PCB** | **Bottom View of PCB** | **Power Management Diagram** |
