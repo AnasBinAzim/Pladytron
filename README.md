@@ -507,22 +507,11 @@ We used the **L293D Motor Driver** in combination with a **Servo Motor** to cont
 
 ### **Steering Systems**
 
-Our robot initially used the **Ackermann Steering System**, known for its efficiency in real-world vehicles. However, we later transitioned to the **LEGO Steering System** to simplify the design and improve modularity while maintaining effective steering control.
+The robot was first designed with an Ackermann Steering System, which is widely recognized for its efficiency in full-scale vehicles where smooth and realistic cornering is important. This system was chosen because it closely replicates how cars steer, making it ideal for projects that aim to simulate real-world vehicle dynamics. However, as the design of the robot progressed, the steering system was later replaced with a LEGO-based steering mechanism. The change was made to simplify construction, reduce complexity, and improve modularity, all while maintaining effective and reliable steering control. The LEGO steering setup makes it easier to experiment, repair, and scale the design without sacrificing too much performance, which is an important advantage in prototyping and educational robotics.
 
----
+The Ackermann Steering System itself is a clever mechanical arrangement that ensures each wheel follows a natural path while the vehicle turns. In any cornering situation, the inner wheels of a vehicle must rotate at a sharper angle than the outer wheels because they travel along a smaller radius. Without this adjustment, wheels would slip or drag, leading to wasted energy and uneven motion. The Ackermann geometry solves this by connecting the front wheels through steering arms angled in such a way that the imaginary extension of these arms intersects at the center of the turn’s radius. This alignment ensures that all wheels follow concentric paths, allowing the vehicle to turn smoothly and efficiently without excessive tire wear or unnecessary power loss.
 
-#### **What is Ackermann Steering System?**
-
-The **Ackermann Steering System** ensures that the wheels of a vehicle turn at different angles during a corner. The inner wheels turn more sharply than the outer wheels, reducing tire slippage and allowing smooth, efficient turning.
-
-##### **How Ackermann Steering Works**
-- The front wheels are connected via a set of steering arms.
-- These arms are angled so that their lines meet at the center of the turn’s radius, ensuring concentric paths for all wheels.
-
-##### **Advantages of Ackermann Steering**
-1. **Efficient Turning**: Minimizes tire slippage.
-2. **Energy Savings**: Reduces power loss caused by wheel drag.
-3. **Realistic Simulation**: Mirrors real-world vehicle steering.
+In practice, the Ackermann system has several clear advantages for robotic applications. It minimizes slippage between the wheels and the ground, which results in more efficient turning and better energy conservation. The reduction of wheel drag also means that the motors driving the vehicle consume less power during maneuvers, which is especially valuable in battery-powered robots where energy efficiency extends operating time. Another key benefit is that it provides a highly realistic simulation of how cars steer, making it particularly useful for robotics projects that aim to mimic real-world automotive systems or serve as educational platforms to demonstrate fundamental vehicle dynamics. Although our project ultimately transitioned to a LEGO-based steering approach for modularity and ease of construction, the principles and advantages of Ackermann steering remain highly relevant for anyone interested in understanding efficient and practical steering systems in robotics and beyond.
 
 ---
 ---
@@ -551,31 +540,7 @@ The **Ackermann Steering System** ensures that the wheels of a vehicle turn at d
 
 ---
 
-The **Tower Pro MG90S** is a high-performance micro servo motor widely used in robotics, RC vehicles, and automation projects.  
-It is known for its **metal gears**, **compact size**, and **high torque-to-weight ratio**, making it ideal for applications that require **precise angular positioning** and **fast response times**.  
-
-This servo is commonly used in **robotic arms**, **drone gimbals**, **RC cars**, and **steering mechanisms** where reliability and durability are essential.
- 
-
----
-
-## Features
-
-- Compact and lightweight design suitable for small projects.  
-- High precision with fast response time.  
-- Durable metal gear construction for longer lifespan.  
-- Compatible with standard PWM servo control signals.  
-- Ideal for applications requiring accurate control of angular movement.  
-
----
-
-## Applications
-
-- RC planes, cars, and boats  
-- Robotics (arms, grippers, walkers)  
-- Camera gimbals and pan-tilt systems  
-- DIY automation projects  
-- Steering mechanisms for small vehicles  
+The Tower Pro MG90S is a micro servo motor designed for applications where compact size and high torque are required, making it a reliable choice for robotics, RC models, and automation projects. Built with durable metal gears, it offers a longer operational lifespan compared to plastic-geared alternatives, while maintaining a lightweight 13.4g profile that makes it easy to integrate into small-scale designs. Operating on a voltage range of 4.8V to 6V, it delivers up to 2.2 kgf·cm stall torque and a quick 0.08s/60° response at 6V, ensuring both strength and speed for demanding tasks. With a rotation range of 120°, the MG90S provides precise angular control suitable for robotic arms, pan-tilt camera gimbals, or steering systems in miniature vehicles. Its compatibility with standard PWM signals means it can be driven directly by most microcontrollers, including Arduino and Raspberry Pi, without the need for additional hardware. Engineers and hobbyists often choose the MG90S because it balances performance and durability in a very small form factor, making it a practical and cost-effective solution for projects that require accurate movement and dependable performance under continuous load.
 
 ---
 
@@ -599,39 +564,16 @@ It provides a secure and stable way to fix the servo motor onto different surfac
 ---
 
 ## Description
-- **Base Plate**  
-  - Flat rectangular plate with four mounting holes for screws/bolts.  
-  - Ensures rigid and stable installation.
+## Servo Motor Holder / Mount (SG90 & MG90S)
 
-- **Servo Housing Slot**  
-  - Rectangular cavity designed to fit SG90/MG90S servos snugly.  
-  - Prevents unwanted servo movement during operation.
+This servo motor holder is designed specifically for the popular SG90 and MG90S micro servos, providing a secure and reliable way to mount the motor onto different surfaces such as a robot chassis, acrylic base, or even wooden frames. The primary goal of the mount is to eliminate instability and vibration, ensuring that the servo can deliver accurate and repeatable movements during operation. For small-scale robotics and automation projects where precision matters, this holder becomes an essential accessory.
+The base of the mount is a flat rectangular plate equipped with four mounting holes that allow it to be firmly attached using screws or bolts. This rigid foundation ensures that once the holder is installed, it remains stable and does not shift under load, even when the servo is driving linkages or mechanical arms. At the center of the design, there is a servo housing slot carefully dimensioned to snugly fit SG90 and MG90S servos. This slot prevents any side-to-side play and keeps the servo perfectly aligned, which is important when the servo is used for steering mechanisms, grippers, or robotic arms where accuracy of angular motion is critical.
+On the sides of the housing are clamp sections with additional screw holes, which allow the servo to be tightly locked in place once inserted. This design makes sure the servo remains fixed during continuous operation, preventing unwanted movement that could lead to mechanical inaccuracy or wear. At the front, the mount features an open clearance space that allows the servo horn or arm to rotate freely without obstruction. This ensures that the servo’s full range of motion can be utilized, whether it is controlling wheels, levers, or pan-tilt systems.
 
-- **Side Clamp with Screw Holes**  
-  - Two side holes allow tightening screws to hold the servo firmly.  
-  - Keeps the servo locked in position.
+The bottom of the mount is left open to provide space for the servo’s wiring to pass through. This prevents cable bending and stress at the connector, reducing the risk of damage to the wires over time and allowing easy integration into compact robotic builds. By providing both mechanical stability and practical cable management, the holder is designed to extend the lifespan of the servo and improve overall reliability of the system.
 
-- **Front Clearance**  
-  - Cutout at the front gives space for the servo horn/arm to rotate freely.  
+In terms of material, PLA is often sufficient for hobby projects where light loads and indoor conditions are expected. However, for applications requiring greater durability or exposure to outdoor environments, PETG or ABS is recommended since both materials offer improved toughness and resistance to stress compared to PLA. The mount’s design is fully compatible with Tower Pro SG90 and MG90S servos, making it versatile for use across a wide range of robotic and automation projects where these micro servos are commonly deployed.
 
-- **Open Bottom Section**  
-  - Provides cable clearance for the servo wiring.  
-  - Prevents wire stress and allows easy connections.
-
----
-
-## Recommended Material
-- PLA for general hobby use  
-- PETG or ABS for higher durability and outdoor projects  
-
-## Compatible Servos
-- Tower Pro SG90 Micro Servo  
-- Tower Pro MG90S Metal Gear Servo  
-
-
-Thats all for mobile management.
----
----
 
 
 # ⚡ Power and Sense Management
