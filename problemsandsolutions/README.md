@@ -16,8 +16,16 @@ The solution was drastic but effective: we removed the action camera role entire
 To address this, we transitioned from sonar sensors to a LiDAR-based solution. Unlike sonar, LiDAR provides much greater coverage with a single sensor, reducing both hardware complexity and software overhead. With LiDAR, the robot was able to generate accurate distance measurements over a wide field of view, allowing it to map its environment with higher confidence and fewer blind spots. This not only simplified the PCB layout by removing multiple unreliable sonar channels but also improved system reliability by eliminating the issues of echo interference and inconsistent readings. The result was a cleaner, more efficient sensing system that required less debugging while dramatically improving environmental awareness and navigation capabilities.
 Together, these problem-solving decisions reflect the iterative engineering process behind the robot. Each limitation encountered — from the camera’s startup logic to the sonar sensor unreliability — forced us to rethink the design and implement more robust alternatives. By replacing manual-dependent hardware with automated solutions and swapping error-prone sensors for advanced LiDAR technology, we made the robot more reliable, maintainable, and capable of performing in real-world conditions.
 <img width="960" height="1092" alt="image" src="https://github.com/user-attachments/assets/38ceee90-687d-409c-8e0a-09ea321bbc57" />
+
+
+
+
+
+
 ---
 ---
+
+
 Another major advantage is range and density of data. Cheap sonar sensors typically measure reliably only within 2–4 meters, and often with wide, imprecise beams that blur object edges. The RPLIDAR C1, on the other hand, provides coverage up to 12 meters with thousands of distance points per second, creating a detailed map of the robot’s environment. This higher density of data not only improves navigation but also enables advanced behaviors such as path planning, obstacle avoidance, and dynamic re-routing in real time. For robotics projects that require autonomy and reliability, these differences are critical.
 Finally, the use of RPLIDAR reduces design complexity. Instead of wiring and calibrating multiple sonar units, the robot only needs a single LiDAR sensor connected via USB or UART. This simplifies the PCB layout, minimizes error sources, and improves overall system reliability. While the upfront cost of RPLIDAR C1 is higher than a set of cheap sonars, the trade-off in performance, reliability, and maintainability makes it a far better choice for serious robotics applications.
 In summary, while sonar sensors are useful for very simple distance measurements, they quickly become a bottleneck in robotics projects due to unreliability and complexity. The RPLIDAR C1 provides accurate, wide-range, 360° scanning with minimal wiring and maximum reliability, making it vastly superior for autonomous navigation and mapping in our robot.
