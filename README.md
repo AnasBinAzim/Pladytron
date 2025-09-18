@@ -678,7 +678,100 @@ The built-in **Deans/T-Plug connector** ensures low-resistance power delivery, w
 
 This battery is ideal for applications requiring **high burst currents, reliability, and long cycle life**, making it a solid choice for powering small-to-medium robotics systems.
 
+---
+## Main Controller :
 
+## **Microcontroller :**  
+# Raspberry Pi 4 Model B
+
+<table>
+  <tr>
+    <td>
+      <img width="1883" height="1249" alt="image" src="https://github.com/user-attachments/assets/3bcbfe18-2bf9-450b-9099-205b13d61c98" />
+    </td>
+    <td>
+      <h3>Specifications</h3>
+      <ul>
+        <li><strong>Processor:</strong> Broadcom BCM2711, Quad-core Cortex-A72 (ARM v8) 64-bit SoC @ 1.5GHz</li>
+        <li><strong>RAM Options:</strong> 2GB, 4GB, or 8GB LPDDR4-3200 SDRAM</li>
+        <li><strong>Networking:</strong> Gigabit Ethernet, 2.4GHz & 5.0GHz 802.11ac Wi-Fi, Bluetooth 5.0</li>
+        <li><strong>USB Ports:</strong> 2 × USB 3.0, 2 × USB 2.0</li>
+        <li><strong>Video & Sound:</strong> 2 × micro-HDMI ports (up to 4Kp60), MIPI DSI display port, MIPI CSI camera port</li>
+        <li><strong>Storage:</strong> microSD card slot for OS and data storage</li>
+        <li><strong>GPIO:</strong> 40-pin header, backward-compatible with previous Raspberry Pi boards</li>
+        <li><strong>Power:</strong> 5V DC via USB-C connector (minimum 3A)</li>
+        <li><strong>Dimensions:</strong> 85.6mm × 56.5mm</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+---
+
+The **Raspberry Pi 4 Model B** is a powerful single-board computer that serves as the main controller of the robot.  
+It offers significant improvements over previous models, including a faster **quad-core ARM Cortex-A72 CPU**, more memory options, dual micro-HDMI outputs supporting **dual 4K displays**, and faster networking with **true Gigabit Ethernet** and **dual-band Wi-Fi**.  
+Its 40-pin GPIO header provides compatibility with a wide range of sensors, motor drivers, and other modules, making it extremely versatile for robotics and IoT applications.  
+
+Thanks to its **USB 3.0 ports**, it can interface with high-speed peripherals such as cameras, LIDAR sensors, or external storage, while the **USB-C power input** ensures stable operation.  
+In this project, the Raspberry Pi 4B acts as the **central brain**, handling computer vision, path planning, and high-level decision-making, while coordinating with microcontrollers, sensors, and actuators to control the entire robot.
+
+---
+
+## GPIO PINOUT OF RPI 4B : 
+
+## **GPIO Pinout :**  
+# Raspberry Pi 4 Model B GPIO (40-pin Header)
+
+<table>
+  <tr>
+    <td>
+      <img width="500" height="500" alt="Raspberry Pi 4B GPIO Pinout" src="images/rpi4b_gpio.png" />
+    </td>
+    <td>
+      <h3>Specifications</h3>
+      <ul>
+        <li><strong>Total Pins:</strong> 40 (2×20 header)</li>
+        <li><strong>Power Pins:</strong> 2 × 5V, 2 × 3.3V, 8 × Ground (GND)</li>
+        <li><strong>GPIO Pins:</strong> 26 (configurable as input/output)</li>
+        <li><strong>Dedicated Interfaces:</strong> 
+          <ul>
+            <li>UART (TXD, RXD)</li>
+            <li>SPI (MOSI, MISO, SCLK, CE0, CE1)</li>
+            <li>I²C (SDA, SCL)</li>
+            <li>PWM channels</li>
+          </ul>
+        </li>
+        <li><strong>Voltage Levels:</strong> 3.3V logic (NOT 5V-tolerant)</li>
+        <li><strong>Backward Compatibility:</strong> Same pinout as Raspberry Pi 3B/3B+</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+---
+
+The **Raspberry Pi 4B GPIO header** provides 40 pins that allow direct hardware interfacing with sensors, actuators, and external modules.  
+Among these are multiple **power pins (5V and 3.3V)**, **ground pins**, and **26 flexible GPIO pins** which can be programmed as input or output using libraries such as **RPi.GPIO** or **GPIO Zero**.  
+
+The header also exposes dedicated hardware interfaces, including **UART for serial communication**, **SPI for high-speed device connections**, and **I²C for multi-sensor integration**, along with PWM support for driving **motors, LEDs, and servos**.  
+
+Because the pins operate at **3.3V logic levels**, external level shifters are required when interfacing with 5V components.  
+This GPIO header is the bridge between the Raspberry Pi and the physical world, making it an essential feature for robotics, IoT, and embedded system projects.
+
+---
+---
+
+## BUCK CONVERTER (8.4 TO 5V) :
+
+
+
+## OUR PREVIOUS PCB 
+
+| **Top View of PCB** | **Bottom View of PCB** | **Power Management Diagram** |
+|----------------------|------------------------|-------------------------------|
+| <img src="https://github.com/user-attachments/assets/be051834-2c23-495e-9aa1-83d9620e1524" width="400"/> | <img src="https://github.com/user-attachments/assets/45d68411-f99a-4ef4-8aef-c63eb856a8e1" width="400"/> | <img src="https://github.com/user-attachments/assets/0f01372c-1cff-4ff7-b65b-5e5a5ca5f" />
+
+---
 ---
 ##  Power Distribution
 
@@ -741,15 +834,7 @@ This PCB is a custom-made prototyping board that acts as the main power regulati
 
 ---
 
-## OUR PREVIOUS PCB 
 
-| **Top View of PCB** | **Bottom View of PCB** | **Power Management Diagram** |
-|----------------------|------------------------|-------------------------------|
-| <img src="https://github.com/user-attachments/assets/be051834-2c23-495e-9aa1-83d9620e1524" width="400"/> | <img src="https://github.com/user-attachments/assets/45d68411-f99a-4ef4-8aef-c63eb856a8e1" width="400"/> | <img src="https://github.com/user-attachments/assets/0f01372c-1cff-4ff7-b65b-5e5a5ca5f" />
-
----
----
----
 
 
 # 🧠 Program Infrastructure and Explanation ## 🏁 Round 1 Algorithm - Lap Completion
