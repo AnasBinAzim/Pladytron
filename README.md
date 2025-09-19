@@ -842,7 +842,7 @@ The wiring shows how all the power rails (red for positive, black for ground, an
 
 
 
-### 🎥 Camera Placement and Functionality
+###  Camera Placement and Functionality
 
 The robot's main camera is positioned at the top and angled slightly downwards. This setup enhances object detection capabilities by providing:
 - **🔍 Close-Range Detection**: The camera can identify objects in close proximity with high accuracy.
@@ -874,7 +874,7 @@ This PCB is a custom-made prototyping board that acts as the main power regulati
 
 
 
-# 🧠 OBSTACLE MANAGEMENT AND CODE EPXLANATION
+#  OBSTACLE MANAGEMENT AND CODE EPXLANATION
 
 In **Round 1**, our robot **SMOKI** must autonomously complete **three laps** on a predefined track without the need for obstacle avoidance. To achieve precise navigation and lap counting, we have developed a robust algorithm that integrates image processing with control systems.
 
@@ -918,14 +918,13 @@ Once the images are converted, color segmentation is performed. By applying HSV 
 After segmentation, the system proceeds to line detection using the Hough Transform. First, preprocessing methods such as Gaussian blur and Canny edge detection are applied to enhance the visibility of edges in the image. The Hough Line Transform then detects straight lines by mapping points from image space into a parameter space, identifying lines where multiple points converge. Each detected line crossing increments a counter, and lap completion is recognized after twelve line crossings, which correspond to three full laps of both blue and orange lines combined.
 To maintain correct alignment on the track, the robot employs a PID (Proportional–Integral–Derivative) control system for position correction. Distance sensors on either side of the robot provide real-time measurements of its relative position. The difference between left and right readings produces an error signal, which the PID controller minimizes. The proportional term reacts to the current error, the integral term compensates for accumulated past errors, and the derivative term predicts future error based on its rate of change. The controller’s output is translated into steering adjustments, keeping the robot centered. Depending on its orientation, the robot may also bias its movement slightly toward the left or right side of the track, ensuring consistent lap recognition and stable navigation.
 
-## 📦 Project Structure
 
 ## 📊 Round 1 Algorithm - Corner Detection Navigation
 
 In Round 1 of the **Future Engineers** category, our robot follows a structured pipeline to complete a lap, detect corners, and terminate correctly at the finish line. The algorithm is designed to balance **robust line tracking** with **precise stopping conditions**.
 
 ---
-# Enlarged Explanation of the Flowchart
+# Explanation of the the first round :
 The flowchart represents the logic behind a line-following robot with LIDAR support, where lap counting and orientation checks are integrated into its navigation system. Let’s walk through it in sequence.
 1. Start and Image Capture
 The process begins at the Start node. The robot immediately moves to capture an image from its camera. This image forms the basis for detecting whether the guiding line (blue or orange track line) is present in the current frame.
@@ -995,6 +994,16 @@ flowchart TD
 
 
 ---
+
+# CODE EXPLANATION :
+## LIDAR CODE:
+<img width="563" height="583" alt="image" src="https://github.com/user-attachments/assets/5ce2c084-b0d3-4706-a306-d9f61da806ca" />
+
+The LidarReader class provides a simple interface for capturing and storing LiDAR sensor data in real time during the robot’s first round of operation. When initialized, it starts an external LiDAR driver program as a subprocess, configured with a serial port and baud rate. A background thread continuously reads the sensor’s live output from the subprocess, line by line. Each line, containing an angle and a distance measurement, is parsed using a regular expression. The parsed results are stored in a dictionary where each angle (in degrees) is mapped to its corresponding distance value. This allows the robot to quickly access either the distance at a specific angle or retrieve all available readings at once. The stop() method cleanly terminates the subprocess when the LiDAR is no longer needed. Overall, this design ensures non-blocking, thread-safe data collection from the LiDAR, enabling the robot to maintain a constantly updated map of its surroundings during navigation.
+---
+
+## Motor Code:
+
 
 
 # 🏆 Round 2 Algorithm - Lap Completion with Obstacle Avoidance and Object Detection
