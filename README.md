@@ -1,4 +1,4 @@
-# **🤖 INTRODUCING TEAM PLADYTRON - WRO 2025**
+§# **🤖 INTRODUCING TEAM PLADYTRON - WRO 2025**
 <div align="center">
   <img width="1280" height="568" alt="image" src="https://github.com/user-attachments/assets/930fa959-45ad-4a6b-877a-23a41c0a6785" />
 
@@ -874,13 +874,13 @@ This PCB is a custom-made prototyping board that acts as the main power regulati
 
 
 
-# 🧠 Program Infrastructure and Explanation ## 🏁 Round 1 Algorithm - Lap Completion
+# 🧠 OBSTACLE MANAGEMENT AND CODE EPXLANATION
 
 In **Round 1**, our robot **SMOKI** must autonomously complete **three laps** on a predefined track without the need for obstacle avoidance. To achieve precise navigation and lap counting, we have developed a robust algorithm that integrates image processing with control systems.
 
 ---
 
-### 🌐 Algorithm Overview
+###  Algorithm Overview
 
 1. **📸 Image Acquisition**:
    - The robot captures real-time images of the track using its onboard camera.
@@ -913,107 +913,54 @@ In **Round 1**, our robot **SMOKI** must autonomously complete **three laps** on
 
 ---
 
-## 📖 Detailed Explanation
-
-### 1. 📸 Image Acquisition and Preprocessing
-- **Camera Input**: High-resolution images are captured at regular intervals to ensure up-to-date visual data.
-- **HSV Conversion**: Conversion to HSV allows for more effective color thresholding. HSV separates image intensity (Value) from color information (Hue and Saturation), making it easier to detect specific colors under varying lighting conditions.
-
-### 2. 🎨 Color Segmentation
-- **HSV Thresholding**: 
-  - **Blue Line Detection**: Pixels within the blue HSV range are extracted.
-  - **Orange Line Detection**: Pixels within the orange HSV range are extracted.
-- **Orientation Check**: By analyzing the sequence of color segments (blue vs. orange), the robot determines its starting orientation. This prevents incorrect lap counting due to starting in the wrong direction.
-
-### 3. 📏 Line Detection with Hough Transform
-- **Edge Detection**: Preprocessing steps like Gaussian blur and Canny edge detection are applied to enhance line features.
-- **Hough Line Transform**: Detects straight lines by transforming points in image space to a parameter space. Lines are identified based on the accumulation of intersecting points in the parameter space.
-- **Lap Counting Logic**: Each detected line crossing increments a counter. The robot recognizes lap completion after counting **12** line crossings, accounting for both blue and orange lines over three laps.
-
-<div align="center">
-  <!-- Placeholder for Hough Line Transform Image -->
-
-  <img src="https://github.com/user-attachments/assets/24ef6a2d-ce3d-4522-8181-7e811d370d6b" alt="Hough Line Transform" width="600">
-  <p><em>Figure: Visualization of Hough Line Transform applied to track image.</em></p>
-</div>
-
-#### 🔗 **Hough Line Transform Tutorial**
-
-For a comprehensive understanding of the Hough Line Transform method, you can watch this detailed tutorial:
-
-- [🔗 Hough Line Transform Tutorial by DigitalSreeni](https://www.youtube.com/watch?v=5zAT6yTHvP0&ab_channel=DigitalSreeni)
-
-### 4. ⚙️ PID Control for Position Correction
-- **Sensor Input**: Distance sensors on both sides provide real-time measurements of the robot's position relative to the track edges.
-- **Error Calculation**: The error signal is the difference between the left and right distance measurements, ensuring the robot stays in the middle of the track by minimizing this difference to zero.
-- **PID Controller**: 
-  - **Proportional Term (P)**: Reacts to the current error.
-  - **Integral Term (I)**: Accounts for past errors to eliminate steady-state offset.
-  - **Derivative Term (D)**: Predicts future error based on the rate of change.
-- **Steering Adjustment**: The PID output adjusts the steering angle to minimize the error. This ensures the robot maintains the desired position centered between the track edges.
-- **Orientation-Based Behavior**:
-  - **Right-Based Orientation**: The robot favors the right side of the track.
-  - **Left-Based Orientation**: The robot favors the left side of the track.
+The process begins with image acquisition and preprocessing, where high-resolution images are captured at regular intervals to provide up-to-date visual data of the track. These images are then converted into the HSV (Hue, Saturation, Value) color space. Unlike RGB, HSV separates brightness from color information, which makes it more effective for thresholding and detecting specific colors under varying lighting conditions.
+Once the images are converted, color segmentation is performed. By applying HSV thresholding, the system isolates pixels belonging to the blue and orange ranges. This allows the robot to detect both blue and orange track lines. The sequence of detected colors is also analyzed to establish the robot’s orientation at the start, ensuring it does not misinterpret direction and mistakenly count laps in reverse.
+After segmentation, the system proceeds to line detection using the Hough Transform. First, preprocessing methods such as Gaussian blur and Canny edge detection are applied to enhance the visibility of edges in the image. The Hough Line Transform then detects straight lines by mapping points from image space into a parameter space, identifying lines where multiple points converge. Each detected line crossing increments a counter, and lap completion is recognized after twelve line crossings, which correspond to three full laps of both blue and orange lines combined.
+To maintain correct alignment on the track, the robot employs a PID (Proportional–Integral–Derivative) control system for position correction. Distance sensors on either side of the robot provide real-time measurements of its relative position. The difference between left and right readings produces an error signal, which the PID controller minimizes. The proportional term reacts to the current error, the integral term compensates for accumulated past errors, and the derivative term predicts future error based on its rate of change. The controller’s output is translated into steering adjustments, keeping the robot centered. Depending on its orientation, the robot may also bias its movement slightly toward the left or right side of the track, ensuring consistent lap recognition and stable navigation.
 
 ## 📦 Project Structure
 
 ## 📊 Round 1 Algorithm - Corner Detection Navigation
-## 📖 Detailed Algorithm Description
 
 In Round 1 of the **Future Engineers** category, our robot follows a structured pipeline to complete a lap, detect corners, and terminate correctly at the finish line. The algorithm is designed to balance **robust line tracking** with **precise stopping conditions**.
 
 ---
-
-### 🔹 Step 1 – Image Acquisition
-- Capture live frames using the Pi Camera.
-- Convert the frames from **BGR to HSV** for better color segmentation.
-
----
-
-### 🔹 Step 2 – Line Detection
-- Apply masking to detect the black line on the arena.
-- Use contour/moments to find the line’s centroid.
-- If the line is detected:
-  - Increment the **line counter**.
-  - Reset the **last line timestamp**.
-
----
-
-### 🔹 Step 3 – Orientation and Corner Detection
-- If a corner is detected (sharp angle/edge in the line):
-  - Increment the **corner counter**.
-- Orientation is adjusted automatically based on the line’s slope and direction.
-
----
-
-### 🔹 Step 4 – Obstacle / Missing Line Handling
-- If the line is missing:
-  - Scan using LiDAR/adjacent frame data.
-  - Calculate slopes of adjacent left and right boundaries.
-  - If **perpendicular slope** detected → count as a line.
-  - Otherwise → apply **weighted average** to determine the best path.
-
----
-
-### 🔹 Step 5 – PID Steering
-- Use a **PID controller** to calculate steering corrections.
-- Maintain smooth navigation while keeping the robot centered on the track.
-
----
-
-### 🔹 Step 6 – Termination Condition
-The robot stops when all three conditions are met:
-1. **Line Count ≥ 12**  
-2. **Last Line Detected > 1500 ms ago**  
-3. **Floor Distance < 1500 mm** (from ultrasonic/LiDAR sensor)  
-
-If these conditions are true:
-- Stop all motors.
-- Terminate the run.
-
-Otherwise:
-- Continue navigation using the **Weighted Average path selection**.
-
+# Enlarged Explanation of the Flowchart
+The flowchart represents the logic behind a line-following robot with LIDAR support, where lap counting and orientation checks are integrated into its navigation system. Let’s walk through it in sequence.
+1. Start and Image Capture
+The process begins at the Start node. The robot immediately moves to capture an image from its camera. This image forms the basis for detecting whether the guiding line (blue or orange track line) is present in the current frame.
+2. Checking for Line Detection
+After capturing the image, the robot checks: Is a line detected?
+If Yes, it proceeds to the orientation check.
+If No, the robot relies on LIDAR scanning to infer the path instead.
+This dual check ensures that if the camera fails to detect a line (due to noise, occlusion, or lighting issues), the LIDAR system provides redundancy.
+3. Line Detected Path
+If a line is found, the robot must determine whether its orientation has already been set.
+If orientation is set, the system simply increments the line counter (Line Count ++), tracking how many lines have been crossed.
+If orientation is not set, the robot fixes its orientation based on the detected color sequence (blue vs. orange) and also increments the line counter. This prevents mistakes in lap counting by ensuring the robot knows which direction it is traveling.
+4. Lap Completion Check
+Once the line count is updated, the system checks three conditions simultaneously:
+LineCount ≥ 12 → meaning the robot has crossed enough lines for three full laps (each lap includes multiple blue/orange crossings).
+LastLine > 1500 ms → a time gap condition that prevents double-counting if two detections happen too close together.
+FloorDist < 1500 → a distance-based condition to ensure the robot is physically on the track surface and not falsely detecting lines elsewhere.
+If all conditions are satisfied, the robot concludes that laps are complete, moves to Stop Bot, and terminates the code.
+If not, the system moves to path correction with LIDAR and PID control.
+5. No Line Detected Path
+If the camera does not detect a line, the robot initiates a LIDAR scan of its surroundings. From this scan, it checks the slope of adjacent lines detected by LIDAR.
+If the slope is perpendicular, this indicates the robot has crossed a track line, so the line counter is incremented and lap completion is re-evaluated.
+If the slope is not perpendicular, the system assumes the robot is simply navigating without crossing a line and moves to LIDAR-based pathfinding.
+This branch ensures the robot doesn’t lose track of lap progress even if the camera fails.
+6. Weighted Average Pathfinding with LIDAR
+When either:
+the lap is not complete, or
+no perpendicular crossing is found,
+the system falls back to LIDAR-based navigation. Here, the robot uses a weighted average method from LIDAR readings to determine the best safe path forward (e.g., avoiding obstacles and staying centered).
+7. PID Steering Correction
+Once the best path is determined, the robot applies a PID controller to calculate the precise steering angle.
+The error signal is generated from differences in left/right LIDAR (or distance sensor) readings.
+The PID controller minimizes this error to keep the robot aligned on track.
+8. Continuing Navigation
+Finally, the robot applies the PID steering adjustment and continues navigating along the track until it loops back to capture the next image, repeating the cycle until the termination condition is met.
 ---
 **Flowchart:**
 
