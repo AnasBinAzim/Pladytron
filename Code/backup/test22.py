@@ -1,1 +1,0 @@
-pirnta("ello")
