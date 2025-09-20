@@ -1002,7 +1002,93 @@ flowchart TD
 The LidarReader class provides a simple interface for capturing and storing LiDAR sensor data in real time during the robot’s first round of operation. When initialized, it starts an external LiDAR driver program as a subprocess, configured with a serial port and baud rate. A background thread continuously reads the sensor’s live output from the subprocess, line by line. Each line, containing an angle and a distance measurement, is parsed using a regular expression. The parsed results are stored in a dictionary where each angle (in degrees) is mapped to its corresponding distance value. This allows the robot to quickly access either the distance at a specific angle or retrieve all available readings at once. The stop() method cleanly terminates the subprocess when the LiDAR is no longer needed. Overall, this design ensures non-blocking, thread-safe data collection from the LiDAR, enabling the robot to maintain a constantly updated map of its surroundings during navigation.
 ---
 
-## Motor Code:
+## Line Checker Code:
+<img width="882" height="583" alt="image" src="https://github.com/user-attachments/assets/027f9e47-5ab8-47d5-9805-eb360d579841" />
+<img width="751" height="431" alt="image" src="https://github.com/user-attachments/assets/8ed9272b-93c3-4f1a-ae6b-212d4c8be664" />
+
+# Geometric Line Operations
+
+This repository contains a set of Python functions for performing geometric operations on lines. These functions are useful for tasks like checking if points lie on a straight line, determining if two lines are perpendicular, and finding the intersection of two lines. The operations rely on the `numpy`, `scipy`, and `shapely.geometry` libraries for numerical and geometric computations.
+
+The functions include:
+
+- **`coords(r, theta_deg)`**: Converts polar coordinates (radius `r` and angle `theta_deg` in degrees) into Cartesian coordinates (`x`, `y`). This is useful for converting data in polar form to standard Cartesian coordinates for easier geometric calculations.
+  
+- **`linearity(points)`**: This function checks if a set of points lies approximately on a straight line using linear regression. The function calculates the best-fit line using the `scipy.stats.linregress` function, returning a boolean indicating if the points are linear (based on an R-squared threshold), the slope and intercept of the line, and the R-squared value of the linear regression. It also handles the case of vertical lines (where all x-coordinates are the same).
+  
+- **`are_perpendicular(m1, m2)`**: This function checks whether two lines with slopes `m1` and `m2` are perpendicular. For two lines to be perpendicular, the product of their slopes should be `-1`. The function also handles special cases where one or both lines are vertical (undefined slopes), as vertical lines have unique behavior when checking perpendicularity.
+  
+- **`get_intersection(m0, b0, m1, b1)`**: Given two lines, the function computes their intersection point. The lines are represented by their slopes (`m0`, `m1`) and intercepts (`b0`, `b1`). If one of the lines is vertical (slope is `None`), the function calculates the intersection accordingly. Otherwise, the intersection is found using the formula for the intersection of two lines: solving for `x` and using the result to find `y`.
+
+### Dependencies
+
+The functions rely on the following Python libraries:
+- `numpy`: For handling numerical operations such as trigonometry and arrays.
+- `scipy`: Specifically, the `scipy.stats.linregress` function is used for performing linear regression and calculating the R-squared value.
+- `shapely`: A library for geometric operations (though not directly used in the provided functions, it may be part of future implementations for geometry-related tasks).
+
+
+# Motor Code :
+<img width="559" height="362" alt="image" src="https://github.com/user-attachments/assets/c36a2962-b773-4814-8f58-a7a9d1fa9e92" />
+
+
+This Python class is designed to control a motor's forward and reverse rotation using the `pigpio` library. It uses PWM (Pulse Width Modulation) to control the speed of the motor, and GPIO pins on the Raspberry Pi are used to drive the motor in either direction. The class provides three primary functions: **forward**, **reverse**, and **stop**.
+
+## Dependencies
+
+- `pigpio`: The `pigpio` library is used to interface with the GPIO pins of the Raspberry Pi. It allows us to control the motor's direction and speed using PWM signals.
+
+- `utility`: This imports `clamp` (and optionally `map_range`) for ensuring the speed value remains within the appropriate range (0 to 255).
+
+## Motor Class
+
+### `__init__(self, pi, forward_pin=12, reverse_pin=18, freq=1000)`
+
+This is the constructor of the `Motor` class. It initializes the motor control, including setting up the GPIO pins and the PWM frequency.
+
+#### Parameters:
+- `pi`: The `pigpio.pi()` instance (already connected to the Raspberry Pi).
+- `forward_pin`: The GPIO pin number for controlling the forward direction of the motor (default is pin 12).
+- `reverse_pin`: The GPIO pin number for controlling the reverse direction of the motor (default is pin 18).
+- `freq`: The frequency for the PWM signal (default is 1000 Hz).
+
+### `forward(self, speed=255)`
+
+This function runs the motor in the forward direction at a specified speed. The speed is provided as a PWM duty cycle value ranging from 0 to 255.
+
+#### Parameters:
+- `speed`: The motor speed, represented as a PWM duty cycle value. The default value is 255 (maximum speed).
+
+The function:
+- Clamps the `speed` to ensure it is between 0 and 255.
+- Sets the PWM frequency for the forward direction.
+- Sets the duty cycle for the forward direction pin to control the speed.
+- Ensures the reverse direction pin is turned off.
+
+### `reverse(self, speed=255)`
+
+This function runs the motor in the reverse direction at a specified speed. Like the `forward()` function, it uses a PWM duty cycle value between 0 and 255 to control speed.
+
+#### Parameters:
+- `speed`: The motor speed, represented as a PWM duty cycle value. The default value is 255 (maximum speed).
+
+The function:
+- Clamps the `speed` to ensure it is between 0 and 255.
+- Sets the PWM frequency for the reverse direction.
+- Sets the duty cycle for the reverse direction pin to control the speed.
+- Ensures the forward direction pin is turned off.
+
+### `stop(self)`
+
+This function stops the motor completely by turning off both the forward and reverse direction pins. It sets the PWM duty cycle for both pins to 0, effectively stopping the motor.
+
+#### Functionality:
+- Sets the PWM duty cycle for both the forward and reverse pins to 0.
+- Stops the motor in both directions.
+
+---
+
+# 
 
 
 
