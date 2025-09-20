@@ -1361,6 +1361,107 @@ This code helps in processing LIDAR data to detect objects and determine their p
 # 2ND ROUND MAIN CODE EXPLANATION(secondround.py) :
 
 
+# Robot Navigation and Object Detection System
+
+## Overview
+
+This script is designed to control a robot equipped with multiple sensors, including a **LIDAR**, **Gyroscope**, **Camera**, and **Motor**. The robot can perform tasks like object detection, wall-following, and parking based on sensor data. The system utilizes object detection, steering adjustments, and proximity checks to navigate in its environment.
+
+## Libraries and Modules
+
+### Imported Libraries:
+
+- **`cv2` (OpenCV)**: For processing camera frames and handling image manipulation tasks such as object detection and contour finding.
+- **`time`**: Provides time-related functions to handle delays and timers in the robot's operations.
+- **`math`**: Provides mathematical functions for geometric and trigonometric calculations.
+- **`numpy`**: Used for numerical operations, particularly with arrays for image processing and object detection.
+- **`pigpio`**: For controlling Raspberry Pi GPIO pins, which interact with the robot's hardware (e.g., motors, servos).
+- **`scipy`**: Used for statistical operations like linear regression (for data processing).
+- **`shapely.geometry`**: Used for geometric calculations, particularly with polygons and points for movement tracking.
+
+### Custom Modules:
+
+- **`utility`**: Contains helper functions like `clamp`, `map_range`, and `steer` for controlling values and the robot's steering.
+- **`line_checks`**: Contains functions to check line geometries, like checking if lines are perpendicular, parallel, or calculating intersections.
+- **`servo`, `lidar_reader`, `gyro_reader`, `motor`, `button`, and `camera_reader`**: Custom classes for controlling servos, reading LIDAR and gyroscope data, motor control, button input handling, and camera image capturing.
+
+## Key Constants and Variables
+
+### Object Constants:
+- **`max_width`**: The maximum width of an object the robot will interact with.
+- **`steering_limit`**: The maximum steering angle the robot can handle.
+- **`obj_steer_err`**: Error margin for steering when interacting with objects.
+- **`minimum_y_for_object`, `minimum_width_for_object`**: Minimum criteria for detecting objects in the environment.
+
+### Global Variables:
+- **`direction`**: Tracks the direction the robot is moving (left or right).
+- **`speed`**: Controls the current speed of the robot.
+- **`parking_flag`**: Indicates whether the robot is currently parking.
+
+## Hardware Setup
+
+### Initializing Hardware:
+- **`pigpio.pi()`**: Initializes the GPIO library to control hardware pins on the Raspberry Pi.
+- **`LIDAR`**: Reads distance data from the LIDAR sensor, which helps the robot detect walls and obstacles.
+- **`Gyroscope`**: Provides yaw (orientation) data to help the robot adjust its position and navigate.
+- **`Servo`**: Controls the steering of the robot.
+- **`CameraReader`**: Captures frames from the robot's camera for object detection.
+- **`Motor`**: Controls the robot's speed and direction based on sensor inputs.
+- **`Button`**: Detects button presses for starting or stopping the robot’s operations.
+
+### GPIO Setup:
+- **LED_PIN**: Controls an LED to indicate the status of the robot.
+
+## Main Logic
+
+### Button Handling:
+The robot listens for button presses to control the robot's start/stop operations and parking functions. Each press toggles the parking mode and starts the parking process based on the robot's surroundings.
+
+
+if state == 1 and prev_btn_state == 0:  # If button is pressed
+    ...
+    if (btn_cnt % 2) == 1 and parking_start_flag is True:
+        ...
+
+---
+# Parking Logic:
+The robot performs parking actions based on its position relative to walls. It uses the LIDAR and Gyroscope to adjust its yaw (orientation) and steer itself into a parking spot.
+<img width="651" height="113" alt="image" src="https://github.com/user-attachments/assets/083686fd-a55f-484a-a7ef-70729aebc857" />
+
+---
+# Object Detection:
+## The robot uses camera frames to detect objects in its environment. The object detection system is based on HSV color ranges. The system marks objects of interest with bounding boxes and adjusts the steering based on their position.
+<img width="648" height="149" alt="image" src="https://github.com/user-attachments/assets/c2ac7dcd-a356-4265-9491-c6e67c1cef80" />
+
+---
+# Wall-Following:
+## The robot can follow walls either on the left or right based on sensor data. The LIDAR readings are used to guide the robot's steering, ensuring it stays at an appropriate distance from the wall.
+<img width="657" height="114" alt="image" src="https://github.com/user-attachments/assets/04560f87-f72f-4f82-94f6-8ad6ab95c2d5" />
+
+---
+# Lidar and Gyroscope integration :
+## The robot combines LIDAR and Gyroscope data to adjust its movement and maintain a correct path. The LIDAR helps in detecting obstacles, while the Gyroscope helps in correcting the robot's orientation.
+<img width="536" height="82" alt="image" src="https://github.com/user-attachments/assets/14d92c75-a049-4830-a330-e3ac6e0e9041" />
+
+---
+
+# Collision Detection:
+## The robot uses a combination of LIDAR and object detection to avoid collisions. When an object is detected too close, the robot stops and waits until the area is clear.
+<img width="640" height="71" alt="image" src="https://github.com/user-attachments/assets/1f56e86b-c0fd-45f9-b0f0-450728249c48" />
+
+---
+
+# Final Parking:
+## The robot follows the parking logic to maneuver into a designated parking spot. It uses LIDAR readings to ensure proper alignment and uses the gyroscope to adjust its final position.
+<img width="511" height="82" alt="image" src="https://github.com/user-attachments/assets/65ad90c2-4697-4d39-9ce9-715ae8198596" />
+
+---
+# Main loop :
+## The robot continuously checks for sensor data, adjusts its speed, direction, and steering, and displays the current camera frame with object detection results. It stops when the button is pressed again, or a specific condition is met.
+<img width="631" height="137" alt="image" src="https://github.com/user-attachments/assets/dbec5187-b208-4735-a0a4-e0835e9f65fb" />
+
+---
+#
   # THATS ALL FROM US
 </p>
 
