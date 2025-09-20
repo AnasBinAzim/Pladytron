@@ -1,4 +1,4 @@
-§# **🤖 INTRODUCING TEAM PLADYTRON - WRO 2025**
+# **🤖 INTRODUCING TEAM PLADYTRON - WRO 2025**
 <div align="center">
   <img width="1280" height="568" alt="image" src="https://github.com/user-attachments/assets/930fa959-45ad-4a6b-877a-23a41c0a6785" />
 
@@ -1148,79 +1148,98 @@ This method terminates the Lidar process and stops the background thread reading
 
 ---
 
+# First Round Algorithm Code : The explanation is already above and you can contemplate it by seeing the flowchart too thats why not explaining here :))
+<img width="593" height="593" alt="image" src="https://github.com/user-attachments/assets/5b0c0a9c-c3d4-45fc-8e46-7a5660b1c857" />
+<img width="534" height="355" alt="image" src="https://github.com/user-attachments/assets/9159ecc8-26f8-420f-85e7-61dba527f318" />
+
+# Wall Following Robot Using Lidar
+
+This repository contains the code for a wall-following robot that uses Lidar sensor data to navigate and avoid obstacles. The robot is capable of following either the left or right wall based on the proximity detected by the Lidar sensor. It uses a servo for steering and motors for movement. The Lidar data is processed in real-time to make decisions for navigation and wall-following.
+
+## Overview
+
+The robot continuously reads data from a Lidar sensor to detect walls on the left and right. Based on the proximity of the walls, the robot adjusts its movement to follow the closer wall. It uses Lidar data to check for straight lines, intersections, and to ensure it follows the path correctly. If the robot detects an obstacle or a sharp turn, it adjusts its path accordingly.
+
+## Features
+
+- **Lidar-based Navigation**: The robot uses Lidar data to measure distances and detect walls on the left and right.
+- **Wall Following**: The robot can follow either the left or right wall depending on which is closer.
+- **Geometric Calculations**: The program uses linear regression to check if points form straight lines and calculates intersections for navigation.
+- **Servo Steering**: The robot's steering is controlled using a servo, which adjusts based on Lidar readings.
+- **Motor Control**: Motors are used for forward movement, with speed controlled by PWM (Pulse Width Modulation).
+
+## How It Works :
+## Initialization
+## LidarReader: The LidarReader class interfaces with the Lidar sensor to continuously read distance data from various angles.
+## Motor: The Motor class controls the movement of the robot.
+## Servo: The Servo class controls the robot's steering mechanism based on the Lidar data.
+## Wall Detection and Decision Making
+## The robot continuously checks the distances to the left and right walls using the Lidar sensor. Based on which wall is closer, the robot decides which wall to follow:
+
+<img width="540" height="139" alt="image" src="https://github.com/user-attachments/assets/9d285b52-860c-4f6d-9bcf-1fa23e03fa97" />
+## This is the stopping condition.
+<img width="651" height="62" alt="image" src="https://github.com/user-attachments/assets/76d500f0-21fc-4463-b06c-93cde9f80f7b" />
 
 
 
-# 🏆 Round 2 Algorithm - Lap Completion with Obstacle Avoidance and Object Detection
+
+
+#  Round 2 Algorithm - Lap Completion with Obstacle Avoidance and Object Detection
 
 Round 2 involves an enhanced version of our robot SMOKI, which autonomously completes three laps, avoiding obstacles and calculating the steering value based on object prioritization and boundary detection. Below is an in-depth look at the step-by-step algorithm implemented for this round.
 
-## 🌟 Step-by-Step Algorithm Overview
+##  Step-by-Step Algorithm Overview
 
-### 📸 Image Acquisition:
+###  Image Acquisition:
 - The camera captures real-time images of the track and surroundings.
 
-### 🎨 HSV Color Conversion:
+###  HSV Color Conversion:
 - Convert the captured image from RGB to HSV (Hue, Saturation, Value) scale.
 - Store all relevant line and object colors for further use.
 
-### 💨 Gaussian Blur:
+###  Gaussian Blur:
 - Apply Gaussian Blur to the frame to reduce noise.
 - Based on predetermined HSV range, isolate the black border portion.
 
-### ⚫ Black Border Detection:
+###  Black Border Detection:
 - Use Canny Edge Detection to identify the black border walls.
 - Apply Hough Line Probabilistic Transformation to determine acceptable border walls.
 
-### 🛑 Border Masking:
+###  Border Masking:
 - Create a border in the frame based on the detected lines.
 - Mask out everything beyond the border to eliminate unnecessary information for the rest of the algorithm.
 
-### 🔍 Line Detection (Blue or Orange):
+###  Line Detection (Blue or Orange):
 - Identify lines using the predetermined HSV color range.
 - Check for the blue or orange line in the frame.
 
-### 📐 Slope Calculation:
+### Slope Calculation:
 - If a line is found, calculate the minimum and maximum slopes for both the blue and orange lines (if both are present).
 
-### ↩️ Orientation Determination:
+###  Orientation Determination:
 - If both blue and orange lines are detected, compare their slopes.
 - Determine the clockwise or anti-clockwise orientation and store this in a variable for future reference.
 
-### 📊 Object Detection and Prioritization:
+###  Object Detection and Prioritization:
 - Detect acceptable objects within the boundary wall.
 - Assign a priority value to each object based on distance, orientation, and coordinates.
 - Register only one object based on predetermined mathematical calculations.
 - Calculate the steering value for navigation using a quadratic function based on the object's distance and position along the x-axis.
 
-### 📡 Serial Communication:
+###  Serial Communication:
 - Send the calculated steering value to the ESP32 via serial communication to adjust the robot's movement accordingly.
 
 ---
 
 ## Algorithm Explanation
 
-- **HSV Conversion** allows for effective color segmentation, making it easier to distinguish between track lines and other features regardless of lighting conditions.
-- **Gaussian Blur** helps to reduce noise, making the detection of borders and lines more reliable.
-- Using **Hough Line Transform** and **Canny Edge Detection** enables accurate identification of boundaries, which is crucial for masking irrelevant parts of the frame.
-- **Slope Comparison** provides the robot with information about its current orientation, enabling it to differentiate between clockwise and anti-clockwise directions based on the detected lines.
-- The **Object Prioritization** mechanism ensures that the robot only reacts to the most relevant obstacle, improving navigation efficiency.
-- Finally, the calculated steering value is sent to the ESP32 for precise movement control, ensuring that the robot maintains its intended path while avoiding obstacles effectively.
-
-## Video Tutorial for Hough Line Transform
-
-For a better understanding of how the Hough Line Transform method is used in our algorithm, you can watch this detailed video tutorial:
-
-- [🔗 Hough Line Transform Tutorial by DigitalSreeni](https://www.youtube.com/watch?v=6-3HgNZkDGA)
-
-## Next Steps
-
-- Test the algorithm in various track conditions to ensure robustness.
-- Fine-tune the HSV color ranges and quadratic function for steering to achieve optimal performance.
-- Collect data on the robot's performance to further refine the object prioritization logic.
-
-Feel free to reach out if you need more insights or help with further tuning the algorithm!
-
+The algorithm begins with image acquisition, where the camera captures real-time images of the track and the surrounding environment. These images are then processed by converting the RGB color space to the HSV (Hue, Saturation, Value) color space, which facilitates better color segmentation. This conversion is crucial for accurately detecting the track lines and objects, as it helps isolate relevant colors regardless of the lighting conditions in the environment.
+To reduce noise in the captured frames, Gaussian blur is applied. This blurring operation smooths the image, making the subsequent steps, such as line and object detection, more reliable. After blurring, the algorithm isolates the black border of the track. The black border is then further processed using Canny Edge Detection, a technique that identifies edges in the image, and the Hough Line Transform to detect the boundaries that form the track walls. These steps allow the system to focus only on the track's relevant sections, effectively eliminating irrelevant background data.
+Once the black border is identified and masked out, the algorithm proceeds to line detection. Using a predetermined HSV range, the system looks for blue and orange lines that represent the track’s guiding paths. These lines are critical for the robot’s navigation, and the system checks for their presence in the image to determine the robot's position relative to the track.
+If either a blue or orange line is found, the algorithm calculates the slope of these lines. Specifically, the algorithm computes the minimum and maximum slopes for both the blue and orange lines (if both are present). These slope values are important for determining the orientation of the robot, as they provide information about whether the robot is traveling in a clockwise or anti-clockwise direction around the track. This step is essential for the robot to navigate turns and adjust its path as needed.
+In parallel, the object detection mechanism is employed to identify obstacles within the track’s boundary walls. The detected objects are prioritized based on their distance, orientation, and coordinates within the frame. Using mathematical calculations, the algorithm determines the most relevant object and registers it for navigation. The robot then calculates a steering value using a quadratic function, which takes into account the object's distance and its position along the x-axis. This steering value is crucial for adjusting the robot's movement and ensuring it remains on track while avoiding obstacles.
+Finally, the algorithm sends the calculated steering value to the ESP32 through serial communication, which adjusts the robot's movement accordingly. This real-time control ensures that the robot remains on its intended path, whether it's navigating straight sections of the track or making turns to avoid obstacles.
+In terms of the underlying processes, the use of HSV conversion enhances the robot's ability to reliably detect track lines in varying lighting conditions, while Gaussian blur reduces noise that could otherwise interfere with detection. Hough Line Transform and Canny Edge Detection are pivotal in accurately identifying track boundaries, allowing for effective masking of the irrelevant parts of the frame. The slope comparison between the detected lines informs the robot's orientation, enabling it to discern whether it's moving clockwise or anti-clockwise on the track. The object prioritization system ensures that only the most relevant obstacles influence the robot’s decisions, optimizing its path-planning efficiency. The final step in the algorithm—the calculation and communication of the steering value—ensures that the robot can make precise, real-time adjustments to its movement.
 
 
 
