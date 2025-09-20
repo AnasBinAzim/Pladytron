@@ -1,99 +1,98 @@
 import time
-from utility import clamp, map_range, steer
-from line_checks import coords, linearity, are_perpendicular, get_intersection
-from servo import Servo
-from lidar_reader import LidarReader
-from motor import Motor
-import numpy as np
-from scipy.stats import linregress, false_discovery_control
-from shapely.geometry import Point, Polygon
-import pigpio
+from utility import clamp, map_range, steer  # Import utility functions for clamping, mapping values, and steering the servo
+from line_checks import coords, linearity, are_perpendicular, get_intersection  # Import geometric functions for line checks and intersections
+from servo import Servo  # Import Servo control class
+from lidar_reader import LidarReader  # Import LidarReader for reading Lidar sensor data
+from motor import Motor  # Import Motor control class
+import numpy as np  # Import numpy for array handling and calculations
+from scipy.stats import linregress, false_discovery_control  # Import statistical functions (though only `linregress` is used)
+from shapely.geometry import Point, Polygon  # Import for geometric operations and handling polygons
+import pigpio  # Import the pigpio library for GPIO control
 
-pi = pigpio.pi()
-lidar = LidarReader(path="/home/wro/rplidar_sdk/output/Linux/Release/ultra_simple")
-servo = Servo(4)
-motor = Motor(pi)
+pi = pigpio.pi()  # Initialize pigpio instance for controlling GPIO pins
+lidar = LidarReader(path="/home/wro/rplidar_sdk/output/Linux/Release/ultra_simple")  # Initialize LidarReader
+servo = Servo(4)  # Initialize Servo on pin 4
+motor = Motor(pi)  # Initialize motor with pigpio instance
 
-# constants
+# Constants for wall distances and directions
 rwall = 0
 lwall = 0
 direction = 0
-err = 22
+err = 22  # Error margin for distance calculations
 f = 0
-checker = 13
-last_time = -100
+checker = 13  # Angle check increment
+last_time = -100  # Variable to store the last time for periodic actions
 
+# Define angle groups for Lidar data
 angle_groups = {
-    "front": [356,357, 358,359, 0,1, 2,3, 4],
+    "front": [356, 357, 358, 359, 0, 1, 2, 3, 4],
     "right": [86, 88, 90, 92, 94],
     "left": [266, 268, 270, 272, 274]
 }
 
+# Main loop that continues until both right and left walls are detected
 while True:
     if rwall and lwall:
         break
-    rwall = lidar.get(90)  # right side wall
-    lwall = lidar.get(270)  # left wall
+    rwall = lidar.get(90)  # Get right wall distance from Lidar
+    lwall = lidar.get(270)  # Get left wall distance from Lidar
 
+# Decide which wall to follow based on which is closer
 if rwall <= lwall:
-    follow_ang = 65
-    corner_ang = 270
+    follow_ang = 65  # Follow the right wall
+    corner_ang = 270  # Corner angle for turning
     print("following right wall")
 elif lwall < rwall:
-    follow_ang = 295
-    corner_ang = 90
+    follow_ang = 295  # Follow the left wall
+    corner_ang = 90  # Corner angle for turning
     print("following left wall")
 
-corner = 0
-fwall_init = lidar.get(0)
-center_dist = lidar.get(follow_ang)
-min_dist = 100
-max_dist = (2 * center_dist) - min_dist
+corner = 0  # Initialize corner counter
+fwall_init = lidar.get(0)  # Get initial front distance
+center_dist = lidar.get(follow_ang)  # Get center distance based on follow angle
+min_dist = 100  # Minimum distance threshold
+max_dist = (2 * center_dist) - min_dist  # Maximum distance threshold
 print(f"rwall={rwall} lwall={lwall} center={center_dist} max_dist={max_dist}")
 time.sleep(3)
-motor.forward(255)  # forward
+motor.forward(255)  # Move forward at maximum speed
 
-
+# Function to get Lidar data for specified angles
 def get_lidar_points(angles):
     points = []
     for angle in angles:
         r = lidar.get(angle)
-        x, y = coords(r, angle)
+        x, y = coords(r, angle)  # Convert polar coordinates to Cartesian
         points.append([x, y])
     return np.array(points)
 
-
+# Main loop for Lidar-based navigation
 try:
     while True:
         print(direction)
         if direction == 0:
-
             num_groups = len(angle_groups)
-            slopes = [None] * num_groups  # None for vertical lines
+            slopes = [None] * num_groups  # Initialize list for slopes (None for vertical lines)
             intercepts = [None] * num_groups
             R2_values = [None] * num_groups
-            f = 1
+            f = 1  # Flag for indicating if lines are valid
             cnt = 0
             print("start")
             for name, angs in angle_groups.items():
-                pts = get_lidar_points(angs)
-                is_line, slope, intercept, r2 = linearity(pts)
+                pts = get_lidar_points(angs)  # Get points for the current group of angles
+                is_line, slope, intercept, r2 = linearity(pts)  # Check if points form a line
                 slopes[cnt] = slope
                 intercepts[cnt] = intercept
                 R2_values[cnt] = r2
                 if not is_line:
-                    f = 0
+                    f = 0  # If any group is not a line, set flag to 0
                 cnt += 1
                 if name == "left":
-                    print(f)
-                    print(slope)
-                    print(intercept)
-                    print(pts)
+                    print(f, slope, intercept, pts)
                     for angee in angs:
                         print(lidar.get(angee))
                     print()
 
-         
+            # Check for perpendicular lines
             if f == 1:
                 if not are_perpendicular(slopes[0], slopes[1]):
                     print("rejected Line")
@@ -101,106 +100,5 @@ try:
                 if not are_perpendicular(slopes[0], slopes[2]):
                     print("rejected Line")
                     f = 0
-            print("Ned")                        
-            print()
-            if f == 1:
-                xx, yy = get_intersection(slopes[0], intercepts[0] - err, slopes[1], intercepts[1] - err)
-                xx2, yy2 = get_intersection(slopes[0], intercepts[0] - err, slopes[2], intercepts[2] + err)
-                frnt = lidar.get(0) + err
-                xf, yf = coords(frnt, 0)
-                rght = lidar.get(90) + err
-                xr, yr = coords(rght, 90)
-                lft = lidar.get(270) + err
-                xl, yl = coords(lft, 270)
-                x4 = xr + (xx - xf)
-                y4 = yr + (yy - yf)
-                x5 = xf + (xx2 - xl)
-                y5 = yf + (yy2 - yl)
 
-                cnt = 7
-                while cnt < 80 and direction == 0:
-                    cnt += 1
-                    x, y = coords(lidar.get(cnt), cnt)
-                    p = Point(x, y)
-                    print(x,y)
-                    print(xf,yf)
-                    print(xr,yr)
-                    rect_points = [(xf, yf), (xx, yy), (xr, yr), (x4, y4)]
-                    rectangle = Polygon(rect_points)
-                    if not rectangle.contains(p):
-                        #direction = 1
-                        follow_ang = 65
-                        corner_ang = 270
-                        print(follow_ang)
-                        break
-
-                cnt = 353
-                while cnt > 650 and direction == 0:
-                    cnt -= 1
-                    x, y = coords(lidar.get(cnt), cnt)
-                    p = Point(x, y)
-                    rect_points = [(xf, yf), (xx2, yy2), (xl, yl), (x5, y5)]
-                    rectangle = Polygon(rect_points)
-                    if not rectangle.contains(p):
-                        #direction = 1
-                        follow_ang = 295
-                        corner_ang = 90
-                        print(follow_ang)
-                        break
-
-        if time.perf_counter() - last_time > 1.55:
-            points = []
-            ange = corner_ang + checker
-            cnt = 1
-            while cnt <= 5:
-                points.append(ange)
-                ange += 1
-                cnt += 1
-            pts = get_lidar_points(points)
-            is_line, slope, intercept, r2 = linearity(pts)
-
-            points = []
-            ange = corner_ang - checker
-            cnt = 1
-            while cnt <= 5:
-                points.append(ange)
-                ange -= 1
-                cnt += 1
-            pts = get_lidar_points(points)
-            is_line2, slope2, intercept2, r22 = linearity(pts)
-
-            if is_line and is_line2 and are_perpendicular(slope, slope2):
-                corner += 1
-                last_time = time.perf_counter()
-                print(corner)
-
-        dist = lidar.get(follow_ang)
-        fwall = lidar.get(0)  # get front dist
-        time.sleep(1)
-        print(1)
-
-        if corner == 12 and fwall < 1450 and time.perf_counter() - last_time > 1.35:
-            motor.stop()
-
-        if fwall < 0:
-            while True:
-                fwall = lidar.get(0)
-                if fwall > 1200:
-                    break
-                if follow_ang < 180:
-                    steer(servo, -75)
-                else:  # left
-                    steer(servo, 75)
-
-        if dist is not None:
-            d = clamp(dist, min_dist, max_dist)
-            ang = map_range(d, min_dist, max_dist, -75, 75)
-            if follow_ang < 180:
-                steer(servo, ang)
-            else:  # left
-                steer(servo, -ang)
-
-except KeyboardInterrupt:
-    print("Stopping LIDAR...")
-    lidar.stop()
-    motor.stop()
+            #
