@@ -24,13 +24,15 @@
 
 - 🥇 **Champion, WRO Bangladesh 2024 (Future Engineers)**
 - 🌍 20th place **WRO International in Izmir, Turkey**
-- 🛠 Multiple national awards in robotics, AI, and innovation
+- 🛠 Multiple national awards in robotics, AI, and competitive programming contests
 
 ---
 
 ### 🌟 **The Meaning Behind PLADYTRON**
 
-Our team name, “PLADYTRON,” dances between the realms of play and technology—a symphony of creativity and code. Like sparks igniting in the dark, our ideas come alive through the joyful spirit of discovery and the relentless pulse of innovation. But beyond the screens and circuits, there is an unseen force : our wellspring of strength: the unwavering support of those who walk beside us. Their hopes, whispered like secret blessings, fuel every challenge we embrace. In their quiet faith, we find the courage to dream bigger, to build stronger, and to journey farther. Pladytron is more than a name; it is the heartbeat of a shared dream, where joy and determination intertwine to create something truly extraordinary.
+Our team, “PLADYTRON,” is a perfect blend of technology and imagination—think of Ultron if he had a heart (and wasn’t trying to destroy the world). Inspired by the advanced intelligence of Ultron, we aim to create something truly powerful—but with a lot less existential dread and world domination plans. Plady, on the other hand, is our grounding force, a reminder that even in the world of high-tech innovation, we still know how to laugh, learn, and—let's be honest—mess up a few things along the way.
+Behind every project, every line of code, there’s an unseen force—kind of like a secret weapon. And that weapon? The unwavering support of those who stand with us. Their belief in us, quietly powering every step, is the real secret sauce to our success. It’s like having a sidekick in a superhero movie, except instead of a cape, they offer advice, encouragement, and the occasional snack.
+Pladytron isn’t just a name—it’s the heart and humor of a shared dream. It’s a place where creativity meets technology, and where the unexpected becomes possible. We’re not just building robots or software—we’re building something that (hopefully) makes the world a little better and a lot more fun. After all, even Ultron had a good idea at first, right?
 
 ---
 
