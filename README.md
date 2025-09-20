@@ -1280,6 +1280,87 @@ flowchart TD
     M --> N[Continue Navigation]
 ```
 <p align="center">
+
+>[!IMPORTANT]
+The second round has the same code files as first round just instead of the 1st round main code, it has the second round main code and instead of lidar first round, it has lidar second round 
+
+# 2nd round algorithm code explanation:
+  ## Lidar Code:
+  <img width="1103" height="664" alt="image" src="https://github.com/user-attachments/assets/049c1de0-9d0d-450d-8638-7417f8de4c74" />
+  <img width="1075" height="621" alt="image" src="https://github.com/user-attachments/assets/7ca091b5-7ae8-45a4-b4a7-8305d6827384" />
+
+# LidarReader Class Explanation
+
+This Python code defines a `LidarReader` class that is responsible for reading data from a LIDAR sensor, clustering the data points, and calculating the centroid of detected objects in the scan. Below is a breakdown of how it works:
+
+## Key Components
+
+### 1. **Imports**
+- **`subprocess`**: To handle the LIDAR sensor process and capture its output.
+- **`threading`**: Used to run a background thread to read sensor data in real-time.
+- **`re`**: Regular expression to parse data.
+- **`math`**: Provides mathematical functions like trigonometric and distance calculations.
+
+### 2. **Global Clustering Parameters**
+Global parameters that define constraints for the clustering process:
+- `MIN_CLUSTER_POINTS`, `MAX_CLUSTER_POINTS`, etc., control how the code clusters LIDAR points (e.g., the minimum number of points required to form a valid cluster or the maximum allowed cluster width).
+
+### 3. **LidarReader Class**
+
+#### `__init__(self, path, port="/dev/ttyUSB0", baud="460800")`
+This method initializes the `LidarReader` object. The `subprocess.Popen` starts the LIDAR sensor process and establishes communication with it using the provided serial port and baud rate. A background thread is also started to read sensor data.
+
+#### `_parse_line(self, line)`
+A helper function that reads each line of the sensor output. It uses a regular expression to extract the angle (`ang`) and distance (`dist`) for each data point. It returns these values as a dictionary: `{"ang": <angle>, "dist": <distance>}`.
+
+#### `_read_sensor_output(self)`
+Reads output from the LIDAR sensor line-by-line. It decodes the data, parses it with `_parse_line`, and stores the angle-distance pairs in `self.data`, which holds all the sensor measurements as `{angle: distance_mm}`.
+
+#### `get(self, angle)`
+Returns the distance (in mm) for a specific angle. If the angle is not found, it returns 0.
+
+#### `get_all(self)`
+Returns a full dictionary of all angle-distance pairs collected from the LIDAR sensor.
+
+#### `stop(self)`
+Terminates the LIDAR sensor process.
+
+### 4. **Clustering Helpers**
+
+#### `_cluster_max_width(self, cluster)`
+Calculates the "width" of a cluster of points. This is the distance between the first and last point in the cluster.
+
+#### `_cluster_centroid(self, cluster)`
+Calculates the centroid (average x, y position) of a cluster of points and returns it in meters (since LIDAR points are in mm).
+
+### 5. **`get_clusters(self)`**
+This function processes the LIDAR data and identifies clusters:
+- It reads all the LIDAR data and starts with an empty `current_cluster`.
+- It iterates over the LIDAR scan data (from `scan_range_min` to `scan_range_max` angles) and converts the polar coordinates (angle and distance) to Cartesian coordinates (x, y).
+- It then calculates the distance between consecutive points. If the distance exceeds the threshold (`POINT_DIST_THRESH`), the current cluster is saved, and a new cluster begins.
+- After finishing the iteration, the function processes the clusters:
+    - It checks if each cluster meets the required size and width criteria (`MIN_CLUSTER_WIDTH <= width <= MAX_CLUSTER_WIDTH`).
+    - It calculates the centroid and width for each valid cluster and stores the results.
+
+### 6. **Finding the Nearest Cluster**
+After clustering, the function identifies the nearest cluster based on its centroid. The nearest cluster is determined by the minimum Euclidean distance from the origin (0, 0) to the centroid of the cluster. It returns the coordinates (centroid) of the nearest cluster, or `(None, None)` if no clusters are found.
+
+## Summary of Process Flow:
+1. The `LidarReader` continuously reads data from the LIDAR sensor.
+2. The data is parsed and stored in a dictionary with angles as keys and distances as values.
+3. The `get_clusters` method processes the data to group points into clusters based on distance between consecutive points.
+4. For each cluster, it calculates the width and centroid.
+5. Finally, it finds and returns the centroid of the nearest cluster, which represents the closest object detected by the LIDAR.
+
+This code helps in processing LIDAR data to detect objects and determine their position relative to the sensor.
+
+
+---
+---
+
+# 2ND ROUND MAIN CODE EXPLANATION(secondround.py) :
+
+
   # THATS ALL FROM US
 </p>
 
