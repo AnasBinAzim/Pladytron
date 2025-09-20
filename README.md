@@ -1088,7 +1088,66 @@ This function stops the motor completely by turning off both the forward and rev
 
 ---
 
-# 
+# LIDAR READER CODE:
+<img width="660" height="623" alt="image" src="https://github.com/user-attachments/assets/a67fc762-2bce-4f09-8787-33f7f36f8bfd" />
+<img width="841" height="529" alt="image" src="https://github.com/user-attachments/assets/7cff7106-c157-405a-b47e-3f2b02671fba" />
+# LidarReader Class
+
+This repository contains a Python class `LidarReader` designed to interface with a Lidar sensor connected via a serial port. It continuously reads data from the Lidar sensor and stores it in a dictionary, where the keys are angles and the values are the corresponding distances. The class runs the Lidar process in a background thread, ensuring non-blocking operation for continuous data reading.
+
+## Overview
+
+The `LidarReader` class is responsible for:
+1. Launching an external Lidar binary as a subprocess.
+2. Continuously reading and parsing the sensor's output (angle and distance data).
+3. Storing the readings in a dictionary.
+4. Providing methods to retrieve the Lidar data at specific angles or as a complete dataset.
+5. Allowing the process to be terminated when no longer needed.
+
+## Methods
+
+### 1. `__init__(self, path, port="/dev/ttyUSB0", baud="460800")`
+This is the constructor method that initializes the Lidar reader by:
+- Starting the Lidar process as a subprocess.
+- Setting up a background thread to continuously read and parse the Lidar output.
+
+#### Parameters:
+- `path` (str): The path to the Lidar binary (e.g., `./lidar_driver`).
+- `port` (str, optional): The serial port for communication with the Lidar (default is `/dev/ttyUSB0`).
+- `baud` (str, optional): The baud rate for communication (default is `460800`).
+
+### 2. `_parse_line(self, line)`
+This method takes a line of data from the Lidar output, uses a regular expression to extract the angle and distance, and returns them as a dictionary.
+
+#### Parameters:
+- `line` (str): A line of data from the Lidar output.
+
+#### Returns:
+- A dictionary with keys `"ang"` (angle) and `"dist"` (distance), or `None` if the line is malformed.
+
+### 3. `_read_sensor_output(self)`
+This method continuously reads the Lidar data in a background thread and processes each line using the `_parse_line` method. It stores the parsed angle and distance values in the `self.data` dictionary.
+
+### 4. `get(self, angle)`
+This method returns the distance corresponding to a specific angle from the Lidar data.
+
+#### Parameters:
+- `angle` (int): The angle for which the distance reading is required.
+
+#### Returns:
+- The distance at the specified angle or `None` if the angle is not found in the data.
+
+### 5. `get_all(self)`
+This method returns a copy of all current Lidar readings stored in `self.data`.
+
+#### Returns:
+- A dictionary of all the angle-distance pairs.
+
+### 6. `stop(self)`
+This method terminates the Lidar process and stops the background thread reading data.
+
+---
+
 
 
 
